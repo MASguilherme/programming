@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="author" content="Guilherme Souza" />
+    <meta name="keywords" content="meu,primeiro,programa,em,javascript" />
+    <meta name="description" content="O primeiro em Javascript" />
+    <link rel="stylesheet" href="css/style.css" />     
+    <title>ex005</title>
+</head>
+<body>
+
+    <script>
+        var n1 = Number(window.prompt('Digite quanto você ganhoo: '))
+        var n2 = parseFloat(window.prompt('Digite quanto gastou: '))
+        var res = n1 -n2;
+        document.writeln(`Seu saldo em dólar é ${res.toLocaleString('pt-br', {style:'currency', currency:'USD'})}<br />`)
+        document.writeln(`Seu saldo em Real é ${res.toLocaleString('pt-br', {style:'currency', currency:'BRL'})}<br />`)
+        document.writeln(`Seu saldo em Real é ${res.toLocaleString('pt-br', {style:'currency', currency:'EUR'})}`)
+                                         
+    </script><!--Fim script-->
+</body>

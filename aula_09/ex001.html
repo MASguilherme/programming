@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <link href="css/style.css" rel="stylesheet" />
+    <title>Primeiro teste em DOM</title>
+</head>
+<body>
+    <h1>Começando com <strong>DOM</strong></h1>
+    <p class="cname">Vai encarar??</p>
+    <p name="tgname">Tá em choque?</p>
+    <div id="msg">GetElementsById</div>
+    <script>
+        var p1 = document.getElementsByTagName('p')[0]
+        window.document.writeln(`Eu escrevi assim: ${p1.innerText}<br /> usando o getElementsByTagName. <br />`)
+        
+        var d = document.getElementById('msg')
+        window.document.writeln(`<br />Olha o que eu fiz utilizando o ${d.innerText}`)
+        d.style.background = 'red'
+        d.innerText = 'Mudei o texto'
+
+        var c = document.getElementsByName('tgname') [0]
+        c.innerText = 'Mudei por nome'
+        c.style.background = 'blue'
+
+        var e = document.getElementsByClassName('cname')[0]
+        e.innerText  = 'Mudei por classe'
+        e.style.background = 'black'
+
+        e = window.document.querySelector('div#msg')
+        e.style.color = 'orange'
+    </script>
+</body>
+</html>

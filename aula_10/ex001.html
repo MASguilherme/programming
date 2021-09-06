@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <link href="css/style.css" rel="stylesheet"/>
+    <title>aula_10-Function</title>
+</head>
+<body>
+    <div class="inte" onclick="clicar()" onmouseenter="entrar()" onmouseout="sair()">
+        Passe o mouse <br />
+        Clique <br />
+        Saia <br />
+    </div>
+
+    <script>
+        function clicar(){
+           var a = window.document.getElementsByClassName('inte')[0]
+            a.innerText = 'Você clicou'
+            a.style.backgroundColor= 'orange'
+        }
+        function entrar(){
+           var a = window.document.getElementsByClassName('inte')[0]
+            a.innerText = 'Você entrou'
+            a.style.backgroundColor= 'green'
+        }
+        function sair(){
+            var a = window.document.getElementsByClassName('inte') [0]
+            a.innerText = 'Você saiu'
+            a.style.backgroundColor= 'black'
+        }
+    </script>
+</body>
+</html>

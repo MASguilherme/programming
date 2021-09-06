@@ -1,0 +1,43 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+html, body{
+height: 100%;
+
+}
+
+div.inte{
+    width:300px;
+    height:300px;
+    background-color:blue;
+    color: #FFF;
+    padding-top:100px;
+    text-align: center;
+    border: 2px solid black;
+    cursor:pointer;
+    font-size: 25px;
+    margin: 2%;
+}
+
+/* Exercício 003 */
+div.somando{
+    padding: 2%;
+}
+
+input.btnsomar{
+    cursor:pointer;
+    padding:1px 4px;
+}
+
+div.res{
+    margin-top: 10px;
+    border: 1px solid black;
+    padding: 10px;
+    width:50%; 
+}
+/* fim 0003 */
+
+

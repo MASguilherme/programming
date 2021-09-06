@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>desafio</title>
+</head>
+<body>
+    <h1>Condições aninhadas</h1>
+
+   <p>Digite um número entre 0 e 10:</p> <input type="number" name="txtn1" id="txtn1" />
+   <input type="button" id="btn1" value="conferir" onclick="conferir()" />
+    <div id="res"></div>
+    <style>
+        input#btn1{
+            cursor:pointer;
+        }
+    </style>
+
+   <script>
+       function conferir(){
+           var n1 = document.querySelector('input#txtn1')
+           var res = document.getElementById('res')
+           n1 = Number(txtn1.value)
+            if(n1 == 5){
+                res.innerHTML = `O número ${n1} que você digitou é igual a 5.`
+            }else{
+                if(n1 > 5 && n1 < 10){
+                    res.innerHTML = `O número ${n1} que você digitou é  maior do que 5 e menor a 10.`
+                }else{
+                    res.innerHTML = `O número ${n1} que você digitou é igual a 10`
+                }if(n1 < 5){
+                    res.innerHTML = `O número ${n1} que você digitou é menor a 5`
+                }else if(n1 > 10){
+                    res.innerHTML = `O número ${n1} que você digitou é maior do que 10 e <strong>está fora do solicitado!</strong>`
+                }
+            }
+       }
+   </script>
+
+</body>
+</html>

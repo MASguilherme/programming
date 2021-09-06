@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <title>Multiplicando</title>
+</head>
+<body>
+    <h1>Multiplicando</h1>
+    <input type="number" name="tn1" id="tn1" />
+    x
+    <input type="number" name="tn2" id="tn2" />
+    <input  class="btnsomar" type="button"value="Multiplicar" name="somar" onclick="mult()" />
+    <div class="res">
+        ...
+    </div>
+    <script>
+        function mult(){
+            var n1 = window.document.getElementById('tn1') 
+            var n2 = window.document.getElementById('tn2')
+            var res = window.document.getElementsByClassName('res')[0]
+            var n1 = Number(tn1.value)
+            var n2 = Number(tn2.value)
+
+             var  r = n1 * n2
+            res.innerHTML = `O Resultado de ${n1} X ${n2} é ${r}`
+        }
+    </script>
+</body>
+</html>
