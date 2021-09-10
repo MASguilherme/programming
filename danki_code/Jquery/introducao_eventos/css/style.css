@@ -8,8 +8,14 @@ html, body{
     height: 100%;
 }
 
-.artigo{
-    width:100%;
+#artigoA{
     padding: 30px;
+    margin-bottom:15px;
     background-color:aquamarine;
+    cursor:pointer;
+}
+
+#artigoB{
+    padding: 30px;
+    background-color:red;
 }

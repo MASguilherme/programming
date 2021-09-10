@@ -1,18 +1,14 @@
-// Podemos chamar uma função de 3 maneiras
+$(
+    function(){
+        $('#artigo').css('background-color','#ccc')
+    }
 
-// 1° 
-//$(window).on('load',function(){
-//     alert("Hello world")
-// })
+)
 
-// 2°
-// $(
-//     function(){
-//         alert("Hello World")
-//     }
-// )
-
-// 3°
-// $(document).ready(function(){
-//     alert("Hello World")
-// })
+$(
+    function(){
+        setTimeout(function(){
+            $('#title').css('padding-top','100px')
+        },3000)
+    }
+)
