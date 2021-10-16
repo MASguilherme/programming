@@ -5,16 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <title>Craindo formulário e janela modal</title>
 </head>
 <body>
-    <div class="bg"></div>
-    <div class="btn">
-        Enviar
+    <div class="bg">
+        <div class="container-form col col-xl-7 col-sm-11">
+            <form>
+                <div class="mb-3">
+                <label for="" class="form-label">Email</label>
+                <input type="email" class="form-control" id="" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text"></div>
+                </div>
+                <div class="mb-3">
+                <label for="" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="">
+                </div>
+                <div class="mb-3">
+                 <label for="" class="form-label">Telefone</label>
+                <input type="number" class="form-control" id="">
+                </div>
+                    
+                
+                <button type="submit" class="btn btn-primary" id="enviado">Submit</button>
+                <button type="submit" class="btn btn-primary" id="fechar">Close</button>
+            </form>
+        </div>
+    </div>
+    <div class="botao">
+        Entrar em contato
     </div>
 
+    
 
-    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/function.js"></script>
 </body>
 </html>
