@@ -4,7 +4,7 @@ $(function(){
         shares: ['twitter', 'facebook']
     })
     // plugin  mask
-    $('input[name=telefone]').mask('(99)9999-999')
+    $('input[name=telefone2]').mask('(99)9999-999')
     $('input[name=input]')
 
 })
