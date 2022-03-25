@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI Calculator</title>
+  </head>
+  <body>
+    <h1>BMI Calculator</h1>
+    <form>
+      <label>Weight:</label>
+      <input type="number" name="n1" id="n1" />
+      <label>height:</label>
+      <input type="number" name="n2" id="n2" />
+
+      <input type="button" value="Calcular BMI" onclick="calcBMI()"/>
+      <p id="result"></p>
+    </form>
+
+    <script>
+        function calcBMI(){
+           var n1 = document.getElementById('n1');
+           var n2 = document.getElementById('n2');
+           number1 = n1.value;
+           number2 = n2.value;
+           var resultBMI = document.getElementById('result');
+
+           var bmi = Math.round(number1 / (Math.pow(number2, 2)));
+
+           resultBMI.innerHTML = 'Seu BMI é: '+bmi+'%';
+
+           if(bmi < 18.5){
+            resultBMI.innerHTML = 'Seu BMI é: '+bmi+'%, então você está a baixo do peso.';
+           }else if(bmi >= 18.5 && bmi <= 24.9){
+            resultBMI.innerHTML = 'Seu BMI é: '+bmi+'%. seu peso está normal';
+           }else{
+            resultBMI.innerHTML = 'Seu BMI é: '+bmi+'%. Você está acima do peso.';
+           }
+           
+        }
+    </script>
+  </body>
+</html>
