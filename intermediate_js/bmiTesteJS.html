@@ -22,11 +22,12 @@
         function calcBMI(){
            var n1 = document.getElementById('n1');
            var n2 = document.getElementById('n2');
-           number1 = n1.value;
-           number2 = n2.value;
            var resultBMI = document.getElementById('result');
+           
+           n1 = n1.value;
+           n2 = n2.value;
 
-           var bmi = Math.round(number1 / (Math.pow(number2, 2)));
+           var bmi = Math.round(n1 / (Math.pow(n2, 2)));
 
            resultBMI.innerHTML = 'Seu BMI é: '+bmi+'%';
 
