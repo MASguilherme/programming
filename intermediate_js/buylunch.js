@@ -1,3 +1,13 @@
+var names = ['Angela','Ben','Jenny','Micheal','Chloe'];
+
+function buyLunch(){
+    var numberOfPeople = names.length;
+    var randomPersonPosition = Math.floor(Math.random() * numberOfPeople);
+    var randomPerson = names[randomPersonPosition];
+
+    console.log(randomPerson+' is going buy the lunch!');
+}
+buyLunch();
 
 // function buyLunch(){
 //     var names = ['Angela','Ben','Jenny','Micheal','Chloe'];
@@ -23,12 +33,3 @@
     
 // }
 // buyLunch();
-var names = ['Angela','Ben','Jenny','Micheal','Chloe'];
-function buyLunch(){
-    var numberOfPeople = names.length;
-    var randomPersonPosition = Math.floor(Math.random(numberOfPeople));
-    var randomPerson = names[randomPersonPosition];
-
-    console.log(randomPerson + ' is going buy a lunch today');
-}
-buyLunch();
