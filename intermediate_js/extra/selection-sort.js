@@ -1,23 +1,21 @@
-var arr = [8, 5, 6, 1, 3, 10, 1];
+var arr = [10,9,8,7,6,5,4,3,2,1];
 
 function selectioSort() {
   var length = arr.length;
-  for (var j = 0; j < (length - 1); j++) {
+  var valueMin = 0;
 
-    var valueMin = j;
-
-    for (var i = j; i < (length - 1); i++) {
-
-      if (arr[i] < arr[valueMin]) {
-        arr[valueMin] = arr[i];
-
-        if (arr[j] > arr[valueMin]) {
-
-          var aux = arr[j];
-          arr[j] = arr[valueMin];
-          arr[valueMin] = aux;
-        }
+  for(var i = 0; i < (length - 1);i++){
+    valueMin = i; 
+    for( var j = i + 1; j < length;j++){
+      if(arr[j] < arr[valueMin]){
+        valueMin = j;
       }
+    }
+    if(i != valueMin){
+      var aux = arr[i];
+      arr[i] = arr[valueMin];
+      arr[valueMin] = aux;
+    
     }
   }
   console.log(arr);
