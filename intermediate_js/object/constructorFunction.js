@@ -1,5 +1,4 @@
 function BellBoy(name, age,languages){
-    debugger;
     this.name = name;
     this.age = age;
     this.languages = languages;
