@@ -5,11 +5,13 @@ for (var i = 0; i < drumLength; i++) {
 
     var innerHTMLButton = this.innerHTML;
     playDrum(innerHTMLButton);
+    btnAnimation(innerHTMLButton);
   });
 
   document.addEventListener("keydown", function (event) {
 
     playDrum(event.key);
+    btnAnimation(event.key);
   });
 
   function playDrum(key) {
@@ -45,5 +47,14 @@ for (var i = 0; i < drumLength; i++) {
       default:
         
     }
+  }
+
+  function btnAnimation(currentKey){
+    var activeBtn = document.querySelector("." + currentKey);
+    activeBtn.classList.add("pressed");
+
+    setTimeout(function(){
+      activeBtn.classList.remove("pressed");
+    },100);
   }
 }
