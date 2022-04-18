@@ -1,6 +1,7 @@
-var arr = [10,9,8,7,6,5,4,3,2,1];
+var arr = [10,9,8,7,6,-1,100,3,2,1];
 
 function selectioSort() {
+  debugger;
   var length = arr.length;
   var valueMin = 0;
 
