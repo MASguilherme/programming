@@ -38,6 +38,8 @@ function nextGame(){
     
     $(`#${randomChosenColour}`).fadeIn(100).fadeOut(100).fadeIn(100);
     playSound(randomChosenColour);
+
+    checkAnswer(randomChosenColour);
 }
 
 function playSound(name){
@@ -55,5 +57,11 @@ function animatePress(currentColour){
 }
 
 function checkAnswer(currentLevel){
-
+    if(){
+        console.lo("success");
+    }
+    else{
+        
+    }
+    console.log(currentLevel);
 }
