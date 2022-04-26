@@ -1,4 +1,4 @@
-var arr = [5,9,6,8,0,1,8,10,25,100,-5];
+var arr = [98, 83, 51, 76, 71, 64, 21, 33];
 
 function bubbleSort(){
     length = arr.length;
@@ -10,8 +10,8 @@ function bubbleSort(){
                 arr[j+1] = aux;
             }
         }
+        console.log(i+" = "+arr);
     }
     
-console.log(arr);
 }
 bubbleSort();

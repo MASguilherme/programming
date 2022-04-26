@@ -1,4 +1,4 @@
-var arr = [10,9,8,7,6,-1,100,3,2,1];
+var arr = [19, 22, 33, 94, 55, 66, 77, 82];
 
 function selectioSort() {
   debugger;
@@ -18,7 +18,8 @@ function selectioSort() {
       arr[valueMin] = aux;
     
     }
+    console.log(arr);
   }
-  console.log(arr);
+
 }
 selectioSort();
