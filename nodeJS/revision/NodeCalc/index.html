@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- CSS -->
+    <link href="css/style-calc.css" rel="stylesheet" />
+
+    <title>Node Calc</title>
+</head>
+<body>
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+          <div class="h-100 p-5 text-white bg-dark rounded-3">
+            <h1>Welcome!</h1>
+            <form action="/" method="post">
+                <label>Digite o primeiro número:</label>
+                <input type="number" class="form-control" name="num1" id="num1" required/>
+                <br />
+                <label>Digite o segundo número:</label>
+                <input type="number" class="form-control" class="form-control" name="num2" id="num2" required/>
+                <br />
+                <p>Escolha um tipo de conta:</p>
+                <input class="form-check-input" class="form-control" type="checkbox" name="soma" id="soma"/>
+                <label for="soma">Soma</label>
+                <br />
+                <input class="form-check-input" type="checkbox" name="sub" id="sub" />
+                <label for="sub">Subtração</label>
+                <br />
+                <input class="form-check-input" type="checkbox" name="mult" id="mult" />
+                <label for="mult">Multiplicação</label>
+                <br />
+                <input class="form-check-input" type="checkbox" name="div" id="div" />
+                <label for="div">Divisão</label>
+                <br />
+                <input class="form-check-input" type="checkbox" name="rest" id="rest" />
+                <label for="rest">Resto</label>
+                <br /><br />
+                <input class="btn btn-outline-light" type="submit" value="Calcular!" />
+            </form>
+          </div>
+        </div>
+  
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
