@@ -1,0 +1,10 @@
+html, body{
+    height:100%;
+}
+
+main{
+    background-color: #ccc;
+    padding: 5%;
+    width: 50%;
+    margin: 0 auto;
+}
