@@ -13,15 +13,13 @@
     <h1 style="color: blue">It's <%= kindOfDay %>!</h1>
     <% } %>
     <ul>
-      <li>Buy Food</li>
-      <li>Cook Food</li>
-      <li>Eat Food</li>
-      <% for(let i = 0; i < newItem.length; i++){%> 
-        <li> <%= newItem[i] %> </li>
+        <h2>Write your to do list:</h2>
+      <% for(let i = 0; i < newItems.length; i++){%> 
+        <li> <%= newItems[i] %> </li>
       <% } %>
     </ul>
     <form class="" method="post" action="/">
-      <input type="text" name="newItem" id="" />
+      <input type="text" name="newItems" id="" />
       <button type="submit" name="send">Send</button>
     </form>
   </body>
