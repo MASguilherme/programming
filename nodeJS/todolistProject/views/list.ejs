@@ -10,9 +10,9 @@
   <body>
     <div class="container">
       <% if(kindOfDay == "Saturday" || kindOfDay == "Sunday") { %>
-      <h1 style="color: purple">It's <%= kindOfDay%>!</h1>
+      <h1 class="title">It's <%= kindOfDay%>!</h1>
       <% }else{ %>
-      <h1 style="color: blue">It's <%= kindOfDay %>!</h1>
+      <h1 class="title">It's <%= kindOfDay %>!</h1>
       <% } %>
       <ul>
         <h2>Write your to do list:</h2>
@@ -20,9 +20,9 @@
         <li><%= newItems[i] %></li>
         <% } %>
       </ul>
-      <form class="" method="post" action="/">
-        <input type="text" name="newItems" id="" />
-        <button type="submit" name="send">Send</button>
+      <form class="form-new-item" method="post" action="/">
+        <input type="text" name="newItems" id="" class="input-new-item" />
+        <button type="submit" name="send" class="btn-send">Send</button>
       </form>
     </div>
   </body>
