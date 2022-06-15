@@ -9,21 +9,30 @@
   </head>
   <body>
     <div class="container">
-      <% if(kindOfDay == "Saturday" || kindOfDay == "Sunday") { %>
-      <h1 class="title">It's <%= kindOfDay%>!</h1>
-      <% }else{ %>
-      <h1 class="title">It's <%= kindOfDay %>!</h1>
-      <% } %>
-      <ul>
-        <h2>Write your to do list:</h2>
+      <div class="box box-title">
+        <h1 class="title">It's <%= kindOfDay%>!</h1>
+      </div>
+
+      <div class="box">
         <% for(let i = 0; i < newItems.length; i++){%>
-        <li><%= newItems[i] %></li>
+        <div class="item">
+          <input type="checkbox" />
+          <p><%= newItems[i] %></p>
+        </div>
         <% } %>
-      </ul>
-      <form class="form-new-item" method="post" action="/">
-        <input type="text" name="newItems" id="" class="input-new-item" />
-        <button type="submit" name="send" class="btn-send">Send</button>
-      </form>
+        <form class="form-new-item item" method="post" action="/">
+          <input
+            type="text"
+            name="newItems"
+            id=""
+            class="input-new-item"
+            placeholder="Add New Item"
+          />
+          <button type="submit" name="send" class="btn-send">+</button>
+        </form>
+      </div>
+      <!-- end box -->
     </div>
+    <!-- end container-->
   </body>
 </html>
