@@ -52,6 +52,10 @@ body{
   border-bottom: 1px solid #F1F1F1;
 }
 
+.item:last-child{
+  border-bottom: 0;
+}
+
 .item > p{
   margin: 0;
   padding: 20px;

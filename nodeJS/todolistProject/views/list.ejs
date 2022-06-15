@@ -10,7 +10,7 @@
   <body>
     <div class="container">
       <div class="box box-title">
-        <h1 class="title">It's <%= kindOfDay%>!</h1>
+        <h1 class="title">It's <%= listTitle %>!</h1>
       </div>
 
       <div class="box">
@@ -29,7 +29,7 @@
             placeholder="Add New Item"
             autocomplete="off"
           />
-          <button type="submit" name="send" class="btn-send">+</button>
+          <button type="submit" name="list" class="btn-send" value=<%= listTitle %>>+</button>
         </form>
       </div>
       <!-- end box -->
