@@ -57,11 +57,16 @@ body{
   padding: 20px;
   font-size:25px;
   font-weight: 200;
-  color: #00204a;
+  color: #A683E3;
 }
 
 .item > input[type="checkbox"]{
   margin: 20px;
+}
+
+.item > input:checked+p {
+  text-decoration:line-through;
+  text-decoration-color: #9171c7;
 }
 .btn-send{
     min-height:50px;
@@ -77,6 +82,7 @@ body{
 
 .btn-send:hover{
   cursor:pointer;
+  background-color: #9473ce;
 }
 
 .input-new-item{
@@ -85,10 +91,10 @@ body{
     top:10px;
     border:none;
     background:transparent;
-    font-size:20px;
+    font-size:22px;
     font-weight:200;
     width:313px;
-    color: #00204a;
+    color: #A683E3;
 }
 .input-new-item:focus {
     outline:none;
