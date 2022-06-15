@@ -14,6 +14,7 @@ let workItems = [];
 
 app.get("/", (req, res) => {
   
+  let day = date.getDate();
 
   res.render("list", { listTitle: day, newItems: items });
 });
