@@ -9,8 +9,8 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-let items = [];
-let workItems = [];
+const items = [];
+const workItems = [];
 
 app.get("/", (req, res) => {
   
