@@ -1,0 +1,39 @@
+*,
+*::after,
+*::before{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+html, body{
+    height:100vh;
+}
+
+/* framework */
+
+.container{
+    height:100%;
+    background-image:url(../images/background.jpg);
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: 100%;
+}
+
+.label{
+    background-color: rgba(0,0,0,0.3);
+    height:100vh;
+}
+
+
+/* end  framework */
+
+
+
+/* mobile */
+@media screen and (max-width:1068px){
+    .container{
+        background-size:cover;
+    }
+}
+/* end mobile */
