@@ -5,12 +5,12 @@
   </div>
 
   <div class="box">
+    <% for(let i = 0; i < newItems.length;i++){ %>
     <div class="item">
-      <% for(let i = 0; i < newItems.length;i++){ %>
-      <input type="checkbox" />  
-      <p><%= newItems[i] %></p>
-      <% } %>
+      <input type="checkbox" />
+      <p> <%= newItems[i] %></p>
     </div>
+    <% } %>
 
     <form class="form-new-item item" method="post" action="/">
       <input
@@ -21,7 +21,7 @@
         placeholder="Add New Item"
         autocomplete="off"
       />
-      <button type="submit" name="list" class="btn-send">+</button>
+      <button type="submit" name="listItem" class="btn-send" value=<%= listTitle %>>+</button>
     </form>
   </div>
 
