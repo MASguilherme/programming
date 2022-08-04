@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/style.css" rel="stylesheet" />
+    <title>To do List</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box box-title">
+        <h1 class="title"><%= listTittle %></h1>
+      </div>
+
+      <div class="box">
+        <div class="item">
+          <input type="checkbox" />
+          <p>new Item</p>
+        </div>
+
+        <form class="form-new-item item" method="post" action="/">
+          <input
+            type="text"
+            name="newItems"
+            id=""
+            class="input-new-item"
+            placeholder="Add New Item"
+            autocomplete="off"
+          />
+          <button type="submit" name="list" class="btn-send" value="list title">
+            +
+          </button>
+        </form>
+      </div>
+      <!-- end box -->
+      <footer>2022 Copyright</footer>
+    </div>
+    <!-- end container-->
+  </body>
+</html>
