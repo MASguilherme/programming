@@ -9,13 +9,21 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+let items = [];
 
 app.get("/", (req, res) => {
-    const day = date.getDate();
+    let day = date.getDate();
 
-    res.render("list", {listTittle:day});
+    res.render("list", { listTitle : day, newItem: items });
 });
 
+app.post("/", (req, res) =>{
+    let item = req.body.newItem;
+
+    items.push(item);
+    res.redirect("/");
+
+});
 
 
 
