@@ -1,12 +1,12 @@
 {
   "name": "todolistrevision",
   "version": "1.0.0",
-  "description": "revision to do list",
-  "main": "index.js",
+  "description": "revision todolist",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Gui Souza",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.0",
