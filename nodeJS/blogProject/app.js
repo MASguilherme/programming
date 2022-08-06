@@ -21,6 +21,22 @@ app.get("/", (req, res) =>{
   res.render("home", {startingContent: homeStartingContent});
 });
 
+app.get("/about", (req, res) =>{
+
+  res.render("about", { abouText: aboutContent});
+});
+
+app.get("/contact", (req, res) =>{
+
+  res.render("contact", {contactText: contactContent});
+});
+
+
+app.get("/compose", (req, res) =>{
+
+  res.render("compose");
+});
+
 
 
 app.listen(3000, function() {
