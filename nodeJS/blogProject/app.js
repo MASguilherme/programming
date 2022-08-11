@@ -15,10 +15,21 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-
+let articles = [];
+let titles = [];
 app.get("/", (req, res) =>{
 
-  res.render("home", {startingContent: homeStartingContent});
+  res.render("home", {startingContent: homeStartingContent, newArticle: articles, newTitle: titles});
+
+});
+
+app.post("/", (req, res) =>{
+  let article = req.body.newArticle;
+  let title = req.body.newTitle;
+
+  articles.push(article);
+  titles.push(title);
+  res.redirect("/");
 });
 
 app.get("/about", (req, res) =>{
@@ -35,8 +46,7 @@ app.get("/contact", (req, res) =>{
 app.get("/compose", (req, res) =>{
 
   res.render("compose");
-});
-
+}); 
 
 
 app.listen(3000, function() {

@@ -3,8 +3,17 @@
 <h1>Compose</h1>
 
 <div>
-    <input type="text" value="" name="" class="form-control "/>
-    <button type="submit" class="btn btn-primary">Publish</button>
+  <form action="/" method="post">
+    <label>Title</label>
+    <input type="text" value="" name="newTitle" class="form-control" />
+    <br />
+    <label>Text</label>
+    <textarea class="form-control" id="" rows="3" name="newArticle"></textarea>
+    <br />
+    <button type="submit" class="btn btn-primary" value="" name="home">
+      Publish
+    </button>
+  </form>
 </div>
 
 <%- include("partials/footer") %>
