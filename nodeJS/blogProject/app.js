@@ -15,20 +15,26 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-let articles = [];
-let titles = [];
+let posts = [];
+
 app.get("/", (req, res) =>{
 
-  res.render("home", {startingContent: homeStartingContent, newArticle: articles, newTitle: titles});
+  res.render("home", 
+  { 
+    startingContent: homeStartingContent, 
+    posts: posts
+  });
 
 });
 
 app.post("/", (req, res) =>{
-  let article = req.body.newArticle;
-  let title = req.body.newTitle;
 
-  articles.push(article);
-  titles.push(title);
+  const post = {
+     article: req.body.newArticle,
+     title: req.body.newTitle
+  }
+
+  posts.push(post);
   res.redirect("/");
 });
 
@@ -48,6 +54,20 @@ app.get("/compose", (req, res) =>{
   res.render("compose");
 }); 
 
+
+app.get("/posts/:postName", (req, res)=>{
+
+  const request = (req.params.postName);
+
+  posts.forEach(function(post){
+    const storageTitle = post.title;
+
+    if(storageTitle === request){
+      console.log("Match Found!");
+    }
+  });
+
+});
 
 app.listen(3000, function() {
   console.log("Server started on port 3000");

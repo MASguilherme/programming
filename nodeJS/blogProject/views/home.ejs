@@ -1,21 +1,18 @@
     <%- include("partials/header") %>
     <!-- Header -->
-    <div class="col-lg-10 btn-compose">
+    <div class="col-lg-11 btn-compose">
         <a href="/compose" class="btn btn-primary">Compose</a>
     </div>
    
-    <div class="col-lg-10">
+    <div class="col-lg-11">
     <h1>First Content</h1>
     <p><%= startingContent %></p>
     </div>
-    <% for(let i = 1; i < newArticle.length; i++ ) { %>
-    <div class="col-lg-10">
-    <br />
-    <h1><%= newTitle[i] %></h1>
-    <p><%= newArticle[i] %></p>
-    </div>
-    <% } %>
+   <% posts.forEach(function(post){ %>
+        <div class="col-lg-11">
+        <h1><%= post.title; %></h1>
+        <p><%= post.article %></p>
+        </div>
+   <% }); %>
 
 </div>
-  <!-- footer -->
-  <%-include("partials/footer") %>
