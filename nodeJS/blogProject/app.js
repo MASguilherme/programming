@@ -37,6 +37,10 @@ app.get("/compose", (req, res) =>{
   res.render("compose");
 });
 
+app.post("/compose", (req, res) =>{
+
+  
+});
 
 
 app.listen(3000, function() {
