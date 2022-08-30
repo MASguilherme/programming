@@ -1,8 +1,7 @@
 const { MongoClient } = require("mongodb");
 
 // Connection URI
-const uri =
-  "mongodb+srv://guilherme:gui@cluster0.k3cpo7g.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb://localhost:27017";
 
 // Create a new MongoClient
 const client = new MongoClient(uri);
@@ -13,8 +12,8 @@ async function run() {
     const fruits = database.collection("fruits");
     // create an array of documents to insert
     const docs = [
-        {name: "strawberry", healthy: true, price: 0.21, stock: 300},
-        {name: "watermelon", healthy: true, price: 7.98, stock: 40}
+      { _id:"3", name: "strawberry berry", healthy: true, price: 0.21, stock: 300 },
+      { _id: "4", name: "watermelon melon", healthy: true, price: 7.98, stock: 40 },
     ];
     // thiss addi option preventtional documents from being inserted if one fails
     const options = { ordered: true };
