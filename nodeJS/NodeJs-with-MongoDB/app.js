@@ -29,8 +29,14 @@ mongoose.connect("mongodb://localhost:27017/PeopleDB", {
 // Schema
 const peopleSchema = new mongoose.Schema({
   _id: Number,
-  name: String,
+  name: {
+    type: String, 
+    required: [true, "A name is required"]
+  },
   profession: String,
+  rating: {
+    type: Number, min: 1, max: 10 
+  }
 });
 
 // collection
@@ -38,17 +44,28 @@ const People = mongoose.model("People", peopleSchema);
 
 // insert data
 
-const marcos = new People({
-  _id: 3,
-  name: "Marcos Pontes",
-  profession: "astronaut",
+const people = new People({
+  
+  _id: 98,
+  Profession: "Office",
+  rating: 10
 });
 
-const vini = new People({
-  _id: 4,
-  name: "Vini Jr",
-  profession: "soccer player",
-});
+people.save();
+
+mongoose.connection.close();
+
+// const marcos = new People({
+//   _id: 3,
+//   name: "Marcos Pontes",
+//   profession: "astronaut",
+// });
+
+// const vini = new People({
+//   _id: 4,
+//   name: "Vini Jr",
+//   profession: "soccer player",
+// });
 
 // People.insertMany([marcos, vini], function(err){
 //   if(err){
@@ -59,14 +76,14 @@ const vini = new People({
 //   }
 // });
 
-People.find(function (err, peoples) {
-  if (err) {
-    console.log(err);
-  } else {
-    mongoose.connection.close();
+// People.find(function (err, peoples) {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     mongoose.connection.close();
     
-    peoples.forEach(function (people, i) {
-      console.log(`${i} - ${people.name}, profession: ${people.profession}` );
-    });
-  }
-});
+//     peoples.forEach(function (people, i) {
+//       console.log(`${i} - ${people.name}, profession: ${people.profession}` );
+//     });
+//   }
+// });
