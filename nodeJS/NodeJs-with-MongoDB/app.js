@@ -41,20 +41,32 @@ const People = mongoose.model("People", peopleSchema);
 const marcos = new People({
   _id: 3,
   name: "Marcos Pontes",
-  profession: "astronaut"
+  profession: "astronaut",
 });
 
 const vini = new People({
   _id: 4,
   name: "Vini Jr",
-  profession: "soccer player"
+  profession: "soccer player",
 });
 
-People.insertMany([marcos, vini], function(err){
-  if(err){
+// People.insertMany([marcos, vini], function(err){
+//   if(err){
+//     console.log(err);
+//   }
+//   else{
+//     console.log("Peoples save on db")
+//   }
+// });
+
+People.find(function (err, peoples) {
+  if (err) {
     console.log(err);
-  }
-  else{
-    console.log("Peoples save on db")
+  } else {
+    mongoose.connection.close();
+    
+    peoples.forEach(function (people, i) {
+      console.log(`${i} - ${people.name}, profession: ${people.profession}` );
+    });
   }
 });
