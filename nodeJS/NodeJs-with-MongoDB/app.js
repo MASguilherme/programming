@@ -44,16 +44,15 @@ const People = mongoose.model("People", peopleSchema);
 
 // insert data
 
-const people = new People({
-  
-  _id: 98,
-  Profession: "Office",
-  rating: 10
-});
+// const people = new People({
+//   _id: 98,
+//   name: "Gerrard",
+//   profession: "Office",
+//   rating: 10
+// });
 
-people.save();
+// people.save();
 
-mongoose.connection.close();
 
 // const marcos = new People({
 //   _id: 3,
@@ -76,14 +75,14 @@ mongoose.connection.close();
 //   }
 // });
 
-// People.find(function (err, peoples) {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     mongoose.connection.close();
+People.find(function (err, peoples) {
+  if (err) {
+    console.log(err);
+  } else {
+    mongoose.connection.close();
     
-//     peoples.forEach(function (people, i) {
-//       console.log(`${i} - ${people.name}, profession: ${people.profession}` );
-//     });
-//   }
-// });
+    peoples.forEach(function (people, i) {
+      console.log(`${i} - ${people.name}, profession: ${people.profession}` );
+    });
+  }
+});
