@@ -95,18 +95,18 @@ const messi = new Player({
 
 // READ
 
-// Player.find(function (err, players) {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     players.forEach(function (players) {
-//       console.log(
-//         `The soccer player ${players.name} is a squad number ${players.squadNumber} and play in the ${players.position} position`
-//       );
-//     });
-//     mongoose.connection.close();
-//   }
-// });
+Player.find(function (err, players) {
+  if (err) {
+    console.log(err);
+  } else {
+    players.forEach(function (players) {
+      console.log(
+        `The soccer player ${players.name} is a squad number ${players.squadNumber} and play in the ${players.position} position`
+      );
+    });
+    mongoose.connection.close();
+  }
+});
 
 // UPDATE
 
@@ -128,20 +128,20 @@ const messi = new Player({
 
 // );
 
-Player.updateOne(
-    {name: "Cristiano Ronaldo"},
-    {ball: nike.name},
+// Player.updateOne(
+//     {name: "Cristiano Ronaldo"},
+//     {ball: nike.name},
 
-    function(err){
-        if(err){
-            console.log(err);
-        }else{
-            console.log("player information was updated!");
+//     function(err){
+//         if(err){
+//             console.log(err);
+//         }else{
+//             console.log("player information was updated!");
 
-            mongoose.connection.close();
-        }
-    }
-);
+//             mongoose.connection.close();
+//         }
+//     }
+// );
 
 // Player.updateOne(
 //     {_id: "6310c4d4b9ef3a2c4b54611a"},
