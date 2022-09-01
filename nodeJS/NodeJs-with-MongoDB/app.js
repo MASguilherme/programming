@@ -42,16 +42,17 @@ const peopleSchema = new mongoose.Schema({
 // collection
 const People = mongoose.model("People", peopleSchema);
 
-// insert data
+// CREATE (INSERT)
 
-// const people = new People({
-//   _id: 98,
+// const person = new People({
+//   _id: 97,
 //   name: "Gerrard",
 //   profession: "Office",
 //   rating: 10
 // });
 
-// people.save();
+// person.save();
+
 
 
 // const marcos = new People({
@@ -75,14 +76,63 @@ const People = mongoose.model("People", peopleSchema);
 //   }
 // });
 
-People.find(function (err, peoples) {
-  if (err) {
-    console.log(err);
-  } else {
-    mongoose.connection.close();
+
+// READ
+
+// People.find(function (err, peoples) {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     mongoose.connection.close();
     
-    peoples.forEach(function (people, i) {
-      console.log(`${i} - ${people.name}, profession: ${people.profession}` );
-    });
+//     peoples.forEach(function (people, i) {
+//       console.log(`${i} - ${people.name}, profession: ${people.profession}` );
+//     });
+//   }
+// });
+
+
+// UPDATE
+
+// People.updateOne(
+//   {_id: "4"}, 
+//   {name: "Vini Malvadeza Junior"},
+
+//   function(err){
+//     if(err){
+//       console.log(err);
+//     }else{
+//       mongoose.connection.close();
+//       console.log(`Succesfuly updated name`);
+//     }
+//   }
+// );
+
+// DELETE
+
+// People.deleteOne(
+//   {_id: "98"},
+
+//   function(err){
+//     if(err){
+//       console.log(err);
+//     }else{
+//       mongoose.connection.close();
+//       console.log("Succesfuly deleted field!");
+//     }
+//   }
+// );
+
+People.deleteMany(
+  {name: "Gerrard"},
+
+  function (err){
+    if(err){
+      console.log(err);
+    }
+    else{
+      mongoose.connection.close();
+      console.log("Succesfully deleted fields");
+    }
   }
-});
+);
