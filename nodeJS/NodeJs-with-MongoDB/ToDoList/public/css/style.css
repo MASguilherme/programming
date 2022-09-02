@@ -13,26 +13,132 @@ html, body{
     height:100%;
 }
 
-/* fonts */
 
-/* .cinzer-400{
-    font-family: 'Cinzel', serif;
-    font-weight:400;
-}
-.cinzer-800{
-    font-family: 'Cinzel', serif;
-    font-weight: 800;
-} */
 
 /* header */
 .header{
     background-color: #7FBCD2;
-    padding: 2% 0;
+    padding: 1% 0;
+    border-bottom: 1px solid rgba(65, 241, 233,0.5);
 }
 
 
 /* navbar */
 nav .container-fluid{
-    max-width: 1050px;
+    max-width: 1150px;
 }
 
+.navbar .container-fluid .navbar-brand{
+    color: #FFF;
+    font-size: 2.5rem;
+    font-weight: 600;
+} 
+
+.navbar .container-fluid .navbar-brand:hover{
+    color: #FFEEAF;
+}
+
+.navbar .container-fluid .navbar-nav .nav-link{
+    color: #FFF;
+    font-size: 1.2rem;
+    margin-left: 1.5rem;
+}
+
+.navbar .container-fluid .navbar-nav .nav-link:hover{
+    color: #FFEEAF;
+}
+
+
+/* Section */
+
+.section-card{
+    padding-top: 5%;
+    background-color: #E1FFEE;
+    height: 100%;
+}
+
+.title{
+    background-color: #7FBCD2;
+    margin: 2% auto;
+    text-align:center;
+    padding: 1%;
+    border-radius: 0.2rem;
+    box-shadow: 3px 3px 8px -3px rgba(0,0,0,0.3);
+}
+
+.title > h1{
+    color: #FFF;
+    font-weight: 800;
+    letter-spacing: 5px;
+}
+.card{
+    max-width: 632px;
+}
+.card-body{
+    margin: 0 auto;
+}
+
+.card-item > .card{
+    border: 1px solid #7FBCD2;
+    box-shadow: 3px 3px 8px  rgba(0,0,0,0.3);
+}
+
+.list-item{
+    border-bottom: 1px solid #7FBCD2;
+    margin: 5% 0;
+}
+
+
+.form-check-input:checked{
+    background-color: #7FBCD2;
+    border:none;
+}
+.form-check-input:checked+label{
+    text-decoration: line-through;
+    color: #7FBCD2;
+}
+
+.form-check-label{
+    font-size: 1.3rem;
+    margin-left: 2%;
+    padding-bottom: 5%;
+    font-weight: 600;
+}
+
+.input-text-new-item{
+    border:none;
+    text-align:center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+    padding-bottom:3%;
+}
+
+.input-text-new-item:focus{
+    outline:none;
+    box-shadow: inset 0 -3px 0 0 #7FBCD2;
+}
+
+.btn-to-do-list{
+    border-radius: 50%;
+    width: 3rem;
+    background-color: #7FBCD2;
+    font-size:1.5rem;
+    color: #FFF
+}
+
+.btn-to-do-list:hover{
+    color: #FFF;
+    background-color: #4e9ab6;
+}
+
+.footer{
+    text-align: center;
+    color:#FFF;
+    padding: 1.5% 0;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 3px;
+    background-color: #7FBCD2;
+    border-top: 1px solid rgba(65, 241, 233,0.5);
+}
