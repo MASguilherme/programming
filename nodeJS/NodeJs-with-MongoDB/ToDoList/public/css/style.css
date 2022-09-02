@@ -71,9 +71,11 @@ nav .container-fluid{
     font-weight: 800;
     letter-spacing: 5px;
 }
-.card{
-    max-width: 632px;
+
+.title > h4{
+    color: #FFF;
 }
+
 .card-body{
     margin: 0 auto;
 }
@@ -86,6 +88,12 @@ nav .container-fluid{
 .list-item{
     border-bottom: 1px solid #7FBCD2;
     margin: 5% 0;
+}
+
+.form-item{
+    text-align: center;
+    margin: 0 auto;
+    padding: 2% 0;
 }
 
 

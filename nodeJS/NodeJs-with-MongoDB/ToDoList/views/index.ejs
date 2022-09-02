@@ -1,6 +1,9 @@
     <%- include("header") -%>
 
     <section class="section-card">
+      <div class="title col-sm-3">
+        <h4><%= currentDay %></h4>
+      </div>
       <div class="title col-sm-4">
         <h1>To Do List: <%= listTitle %></h1>
       </div>
@@ -19,7 +22,7 @@
               <% } %>
             </div>
 
-            <form method="post" action="/">
+            <form method="post" action="/" class="form-item">
               <input
                 type="text"
                 class="input-text-new-item"

@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const date = require(__dirname + "/date.js");
 
 
 const app = express();
@@ -13,8 +14,10 @@ let workItems = [];
 let weekendItems = [];
 
 app.get("/", (req, res) =>{
+    
+    let day = date.getDate();
 
-    res.render("index",{listTitle: "Today", newItems: items});
+    res.render("index",{listTitle: "Today", newItems: items, currentDay: day});
 });
 
 app.post("/", (req, res) => {
@@ -38,7 +41,9 @@ app.post("/", (req, res) => {
 
 app.get("/work", (req, res) =>{
 
-    res.render("index", {listTitle: "Work", newItems: workItems});
+    let day = date.getDate();
+
+    res.render("index", {listTitle: "Work", newItems: workItems, currentDay: day});
 });
 
 app.post("/work", (req, res) =>{
@@ -49,7 +54,10 @@ app.post("/work", (req, res) =>{
 
 app.get("/weekend", (req,res) =>{
 
-    res.render("index", {listTitle: "Weekend", newItems: weekendItems});
+    let day = date.getDate();
+    
+
+    res.render("index", {listTitle: "Weekend", newItems: weekendItems, currentDay: day});
 });
 
 app.post("weekend", (req, res) =>{
