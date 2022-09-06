@@ -55,6 +55,7 @@ nav .container-fluid{
     padding-top: 5%;
     background-color: #E1FFEE;
     height: 100%;
+    margin-bottom: 10%;
 }
 
 .title{
@@ -78,6 +79,10 @@ nav .container-fluid{
 
 .card-body{
     margin: 0 auto;
+}
+
+.cart-item{
+    margin-bottom: 10%;
 }
 
 .card-item > .card{
@@ -139,6 +144,11 @@ nav .container-fluid{
     color: #FFF;
     background-color: #4e9ab6;
 }
+
+.dynamic-margin{
+    margin: 10% 0;
+}
+
 
 .footer{
     text-align: center;

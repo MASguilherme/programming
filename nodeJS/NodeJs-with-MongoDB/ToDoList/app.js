@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 const date = require(__dirname + "/date.js");
-
 
 const app = express();
 
@@ -9,9 +9,54 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 
-let items = [];
-let workItems = [];
-let weekendItems = [];
+// connection with mongoDB
+mongoose.connect("mongodb://localhost:27017/listDB");
+
+// Schema
+const itemsSchema = {
+    name: {
+        type: String, required:[true, "alert('A name is required!')"]
+    }
+};
+
+const Item = mongoose.model("Item", itemsSchema);
+
+const itemsList2 = new Item({
+    name: "Update a Site"
+});
+
+const itemList3 = new Item({
+    name: "Delte a site"
+})
+
+const defaultItems = [itemsList2, itemList3];
+
+// Insert Items
+// Item.insertMany(defaultItems, function(err){
+//     if(err){
+//         return err;
+//     } 
+    
+//     else{
+//         console.log("Item was inserted successfully!");
+//     }
+// });
+
+
+// Read
+Item.find(function(err, items){
+    if(err){
+        console.log(err);
+    }else{
+        items.forEach(function(items){
+            console.log(`Task: ${items.name}`);
+        });
+    }
+});
+
+// let items = [];
+// let workItems = [];
+// let weekendItems = [];
 
 app.get("/", (req, res) =>{
     
@@ -34,6 +79,7 @@ app.post("/", (req, res) => {
     else{
         items.push(item);
         res.redirect("/");
+
     }
 
 
