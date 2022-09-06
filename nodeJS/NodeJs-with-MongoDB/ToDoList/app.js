@@ -43,16 +43,7 @@ const defaultItems = [itemsList2, itemList3];
 // });
 
 
-// Read
-Item.find(function(err, items){
-    if(err){
-        console.log(err);
-    }else{
-        items.forEach(function(items){
-            console.log(`Task: ${items.name}`);
-        });
-    }
-});
+
 
 // let items = [];
 // let workItems = [];
@@ -61,8 +52,16 @@ Item.find(function(err, items){
 app.get("/", (req, res) =>{
     
     let day = date.getDate();
-
-    res.render("index",{listTitle: "Today", newItems: items, currentDay: day});
+    
+    // Read
+    Item.find(function(err, items){
+        if(err){
+            console.log(err);
+        }else{
+                res.render("index",{listTitle: "Today", newItems: items, currentDay: day});
+        }
+    });
+    
 });
 
 app.post("/", (req, res) => {
