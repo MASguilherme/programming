@@ -54,11 +54,11 @@ app.get("/", (req, res) =>{
     let day = date.getDate();
     
     // Read
-    Item.find(function(err, items){
+    Item.find(function(err, item){
         if(err){
             console.log(err);
         }else{
-                res.render("index",{listTitle: "Today", newItems: items, currentDay: day});
+                res.render("index",{listTitle: "Today", newItems: item, currentDay: day});
         }
     });
     
