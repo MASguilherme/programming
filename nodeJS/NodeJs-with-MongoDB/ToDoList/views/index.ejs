@@ -15,10 +15,12 @@
 
               <% newItems.forEach(function(item){ %>
                 <div class="col-lg-12">
-                  <input class="form-check-input" type="checkbox" value="" />
-                  <label class="form-check-label" for="flexCheckDefault">
-                    <%= item.name %>
-                  </label>
+                  <form method="post" action="/delete">
+                    <input class="form-check-input" type="checkbox" name="checkDel" onChange="this.form.submit()" value="<%= item._id %>" />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      <%= item.name %>
+                    </label>
+                  </form>
                 </div>
               <% }); %>
 
@@ -37,7 +39,8 @@
                 name="newItems"
                 autocomplete="off"
               />
-              <button type="submit" class="btn btn-to-do-list" name="index" value=<%= listTitle %>>+</button>
+              <button type="submit" class="btn btn-to-do-list" 
+              name="index" value=<%= listTitle %>>+</button>
             </form>
           </div>
         </div>

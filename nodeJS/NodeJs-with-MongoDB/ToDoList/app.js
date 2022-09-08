@@ -21,33 +21,23 @@ const itemsSchema = {
 
 const Item = mongoose.model("Item", itemsSchema);
 
-const itemsList2 = new Item({
+const itemsList1 = new Item({
     name: "Update a Site"
 });
 
-const itemList3 = new Item({
+const itemList2 = new Item({
     name: "Delte a site"
-})
+});
 
-const defaultItems = [itemsList2, itemList3];
+const defaultItems = [itemsList1, itemList2];
 
-// Insert Items
-// Item.insertMany(defaultItems, function(err){
-//     if(err){
-//         return err;
-//     } 
-    
-//     else{
-//         console.log("Item was inserted successfully!");
-//     }
-// });
+// Custom URL
+const listSchema = {
+    name: String,
+    items: [itemsSchema]
+}
 
-
-
-
-// let items = [];
-// let workItems = [];
-// let weekendItems = [];
+const List = mongoose.model("List", listSchema);
 
 app.get("/", (req, res) =>{
     
@@ -58,58 +48,73 @@ app.get("/", (req, res) =>{
         if(err){
             console.log(err);
         }else{
-                res.render("index",{listTitle: "Today", newItems: item, currentDay: day});
+                res.render("index", {listTitle: "Today", newItems: item, currentDay: day});
         }
     });
     
 });
 
+
+app.get("/:customListName",(req, res) =>{
+
+    let day = date.getDate();
+
+    const customListName = req.params.customListName;
+
+    List.findOne({name: customListName}, function(err, foundList){
+
+        if(!err){
+            if(!foundList){
+                const customList = new List({
+                    name: customListName,
+                    items:defaultItems
+                });
+                customList.save();
+                res.redirect("/" + customListName);
+            }else{
+                res.render("index", {listTitle: foundList.name, newItems: foundList.items, currentDay: day });
+            }
+        }
+    });
+
+
+});
+
 app.post("/", (req, res) => {
 
-    let item = req.body.newItems;
+    const itemName = req.body.newItems;
+    const listName = req.body.index;
 
-    if(req.body.index === "Work"){
-        workItems.push(item);
-        res.redirect("/work");
-    }else if(req.body.index === "Weekend"){
-        weekendItems.push(item);
-        res.redirect("/weekend");
-    }
-    else{
-        items.push(item);
+    const item = new Item({
+        name: itemName
+    });
+    if(listName == "Today"){
+        item.save();
         res.redirect("/");
+    }else{
+        List.findOne({name: listName}, function(err, foundList){
+            foundList.items.push(item);
+            foundList.save();
 
+            res.redirect("/" + listName);
+        });
     }
 
-
 });
 
-app.get("/work", (req, res) =>{
+app.post("/delete", (req, res)=>{
+    const checkedItemId = req.body.checkDel;
 
-    let day = date.getDate();
-
-    res.render("index", {listTitle: "Work", newItems: workItems, currentDay: day});
+    Item.findByIdAndRemove(checkedItemId, (err) =>{
+        if(err){
+            console.log(err);
+        }else{
+            console.log("Item was successfully removed!");
+            res.redirect("/");
+        }
+    });
 });
 
-app.post("/work", (req, res) =>{
-    let item = req.body.newItems;
-    workItems.push(item);
-    res.redirect("/work");
-});
-
-app.get("/weekend", (req,res) =>{
-
-    let day = date.getDate();
-    
-
-    res.render("index", {listTitle: "Weekend", newItems: weekendItems, currentDay: day});
-});
-
-app.post("weekend", (req, res) =>{
-    let item = req.body.newItems;
-    weekendItems.push(item);
-    res.redirect("/weekend");
-});
 
 app.listen(3000, () =>{
     console.log("Server is running on port 3000!");
