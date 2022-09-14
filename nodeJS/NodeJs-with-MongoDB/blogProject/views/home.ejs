@@ -1,0 +1,21 @@
+    <%- include("partials/header") %>
+    <!-- Header -->
+    <div class="col-lg-11 btn-compose">
+        <a href="/compose" class="btn btn-primary">Compose</a>
+    </div>
+   
+    <div class="col-lg-11">
+    <h1>First Content</h1>
+    <p><%= startingContent %></p>
+    </div>
+   <% posts.forEach(function(post){ %>
+        <div class="col-lg-11">
+        <h1><%= post.title; %></h1>
+        <p>
+            <%= post.content.substring(0,100) + "..." %> 
+            <a href="/post/<%=post.title%>">Read More</a>
+        </p>
+        </div>
+   <% }); %>
+
+</div>
