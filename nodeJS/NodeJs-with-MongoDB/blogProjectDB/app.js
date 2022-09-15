@@ -59,21 +59,23 @@ app.post("/compose", function(req, res){
         content: req.body.newContent
     });
 
-    post.save();
+    post.save(function(err){
+        if(!err){
+            res.redirect("/");
+        }
+    });
 
-    res.redirect("/");
 });
-app.get("/post/:postName", (req, res) => {
+app.get("/post/:postId", (req, res) => {
 
-    
-    const request = _.lowerCase(req.params.postName);
+    const requestedPostId = req.params.postId;
 
-    posts.forEach(function(post){
+    Post.findOne({_id:requestedPostId}, function(err, post){
 
-        const storageTitle = _.lowerCase(post.title);
-
-        if(storageTitle === request){
-            res.render("post",{
+        if(err){
+            console.log(err);
+        }else{
+            res.render("post", {
                 title: post.title,
                 content: post.content
             });
