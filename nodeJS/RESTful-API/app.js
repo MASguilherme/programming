@@ -19,10 +19,24 @@ const articleSchema = new mongoose.Schema({
 
 const Article = mongoose.model("Article", articleSchema);
 
-app.get("/articles", (req, res) =>{
+
+app.get("/showArticles", (req, res)=>{
     Article.find(function(err, foundArticles){
         res.send(foundArticles);
     });
+});
+
+app.get("/articles", (req, res) =>{
+
+    res.render("articles");
+});
+
+app.post("/articles", (req, res) =>{
+
+    console.log(req.body.title);
+    console.log(req.body.content);
+
+    res.redirect("/articles");
 });
 
 app.listen(3000, (req, res) =>{
