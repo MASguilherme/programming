@@ -33,9 +33,6 @@ app.get("/articles", (req, res) =>{
 
 app.post("/articles", (req, res) =>{
 
-    console.log(req.body.title);
-    console.log(req.body.content);
-
     const article = new Article({
         title : req.body.title,
         content : req.body.content
