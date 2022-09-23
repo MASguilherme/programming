@@ -26,12 +26,13 @@ app.get("/showArticles", (req, res)=>{
     });
 });
 
-app.get("/articles", (req, res) =>{
+
+app.route("/articles")
+.get((req, res) =>{
 
     res.render("articles");
-});
-
-app.post("/articles", (req, res) =>{
+})
+.post((req, res) =>{
 
     const article = new Article({
         title : req.body.title,
@@ -41,7 +42,28 @@ app.post("/articles", (req, res) =>{
     article.save();
 
     res.redirect("/articles");
+})
+.delete((req, res)=>{
+    Article.deleteMany(function(err){
+        if(err){
+            console.log(err);
+        }else{
+            console.log("The articles was deleted!");
+        }
+    });
 });
+
+app.route("/articles/:articleTitle")
+.get((req, res) =>{
+    Article.findOne({title: req.params.articleTitle}, function(err, foundArticle){
+        if(foundArticle){
+            res.send(foundArticle);
+        }else{
+            res.send("No Articles was found.");
+        }
+    });
+});
+
 
 app.listen(3000, (req, res) =>{
     console.log("Server is running on port 3000!");
