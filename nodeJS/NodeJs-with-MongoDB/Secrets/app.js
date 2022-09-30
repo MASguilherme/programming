@@ -3,7 +3,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const mongoose = require('mongoose');
-const encrypt = require('mongoose-encryption');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 const app = express();
 
@@ -18,9 +19,6 @@ const userSchema = new mongoose.Schema ({
     password: String
 });
 
-
-userSchema.plugin(encrypt, {secret: process.env.SECRET, encryptedFields: ['password']});    
-
 const User = new mongoose.model("User", userSchema);
 
 app.route("/")
@@ -33,20 +31,25 @@ app.route("/register")
     res.render('register');
 })
 .post((req, res) =>{
-     const newUser = new User({
-        email: req.body.username,
-        password: req.body.password
-     });
 
-     newUser.save((err) =>{
-        if(err){
-            return err;
-        }else{
-            {
-                res.render('secrets');
+    bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
+        const newUser = new User({
+            email: req.body.username,
+            password: hash
+         });
+    
+         newUser.save((err) =>{
+            if(err){
+                console.log(err);
+            }else{
+                {
+                    res.render('secrets');
+                }
             }
-        }
-     })
+         });
+    });
+
+
 });
 
 app.route("/login")
