@@ -64,11 +64,11 @@ app.route("/login")
             console.log(err);
         }else{
             if(foundUser){
-                if(foundUser.password === password){
-                    res.render('secrets');
-                }else{
-                    res.render('home');
-                }
+                bcrypt.compare(password, hash, function(err, result){
+                    if(result === true){
+                        res.render('secrets');
+                    }
+                });
             }else{
                 res.render('home');
             }
