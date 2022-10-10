@@ -9,6 +9,7 @@ const session = require('express-session');
 const passport = require('passport');
 const passportLocalMongoose = require('passport-local-mongoose');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const findOrCreate = require('mongoose-findorcreate')
 
 const app = express();
 
@@ -29,10 +30,12 @@ mongoose.connect('mongodb://localhost:27017/userDB');
 
 const userSchema = new mongoose.Schema ({
     email: String,
-    password: String
+    password: String,
+    secret: String
 });
 
 userSchema.plugin(passportLocalMongoose);
+userSchema.plugin(findOrCreate);    
 
 const User = new mongoose.model("User", userSchema);
 
@@ -59,14 +62,53 @@ app.route("/")
     res.render("home");
 });
 
+app.route("/auth/google")
+.get((get, res) =>{
+    passport.authenticate("google", {scope: ['profile'] });
+});
+
+
+app.route("/submit")
+.get((req, res) =>{
+    if(req.isAuthenticated){
+        res.render("submit");
+    }else{
+        res.redirect("/login");
+    }
+})
+.post((req, res) =>{
+    const submittedSecret = req.body.secret;
+    const idUser = req.user.id;
+    console.log(idUser);
+
+    User.findById(idUser, function(err, foundUser){
+        if(err){
+            console.log(err);
+        }else{
+            if(foundUser){
+                foundUser.secret = submittedSecret;
+                foundUser.save();
+                res.redirect("/secrets");
+            }
+        }
+    });
+
+
+});
+
+
 app.route("/secrets")
 .get((req, res) =>{
     
-    if(req.isAuthenticated()){
-        res.render("secrets");
-    }else{
-        res.redirect("/login")
-    }
+    User.find({"secret":{$ne: null}}, function(err, foundUsers){
+        if(err){
+            console.log(err);
+        }else{
+            if(foundUsers){
+                res.render("secrets", {usersWithSecret: foundUsers});
+            }
+        }
+    });
 });
 
 app.route("/register")
