@@ -2,9 +2,9 @@ import React from "react";
 
 function Note() {
   return (
-    <section class="note-section">
+    <section className="note-section">
       <div className="note-wrap">
-        <div class="note">
+        <div className="note">
           <h3>Note Title</h3>
           <p> Note paragraphs</p>
         </div>
