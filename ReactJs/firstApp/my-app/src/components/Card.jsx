@@ -4,7 +4,7 @@ import Info from "./Info";
 
 function Card(props) {
   return (
-    <section className="card-section">
+    <div className="card-section">
       <div className="card">
         <div className="title-card">
           <h2>{props.name}</h2>
@@ -15,7 +15,7 @@ function Card(props) {
           email={props.email}
         />
       </div>
-    </section>
+    </div>
   );
 }
 

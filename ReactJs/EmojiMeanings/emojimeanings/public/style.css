@@ -10,7 +10,74 @@
 
 html, 
 body{
-    height: 100%;
+    height: 100vh;
     font-family: 'Montserrat', sans-serif;
+    background-color: #CDFCF6;
 }
 
+.dic-heading{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.dic-heading .dic-title{
+    background-color: #98A8F8;
+    width: 50%;
+    display: flex;
+    justify-content:center;
+    text-align:center;
+    margin-top: 5%;
+    padding: 3% 0;
+    border-radius: 3px;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.5);
+}
+
+.dic-title h1{ 
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #FAF7F0;
+    padding: 1%;
+}
+.dic-section{ 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+}
+.dic-item{
+    background-color: #FFF;
+    max-width:350px;
+    display: flex;
+    margin: 5% 3%;
+    padding: 2% 2.5%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(152, 168, 248,0.3);
+}
+
+.dic-item dt{ 
+    font-size: 1.5rem;
+    text-align:center;
+    font-weight: 800;
+}
+
+.dic-item dt p{ 
+    font-size: 5rem;
+    margin-bottom: 2%;
+}
+
+.dic-item dd{ 
+    margin-top: 3%;
+    text-align: justify;
+}
+
+@media screen and (max-width:680px){
+    .dic-title h1{ 
+        font-size: 1.2rem;
+    }
+
+    .dic-item dt p{ 
+        font-size: 2.8rem;
+    }
+
+}
