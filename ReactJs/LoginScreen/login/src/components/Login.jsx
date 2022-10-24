@@ -1,14 +1,25 @@
 import React from "react";
+import Input from "./Input";
 
 function Login() {
-  return(<div className="box-login">
-  <h1>Hello</h1>
-  <form>
-      <input type="text" placeholder="Username"/>
-      <input type="password" placeholder="Password"/>
-      <input type="submit" value="Login" />
-  </form>
-</div>);
+  return (
+    <div className="box-login">
+
+      <form>
+        <Input
+          type="text"
+          placeholder="UserName"
+        />
+        <Input
+          type="password"
+          placeholder="Password"
+        />
+        <Input
+          type="submit"
+          value="Login"
+        />
+      </form>
+    </div>);
 }
 
 export default Login;

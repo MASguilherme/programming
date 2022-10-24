@@ -30,6 +30,11 @@ const notes = [
     title: "Note Title 6 psum.",
     content: "Lorem Ipsum is  dummy"
   },
+  {
+    id: 7,
+    title: "Note Title 7 psum.",
+    content: "Lorem Ipsum is  dummy"
+  }
   
 ];
 
