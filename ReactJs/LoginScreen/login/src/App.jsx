@@ -1,26 +1,17 @@
 import React from "react";
 import Login from "./components/Login";
 
-var isLoggedIn = false;
+const userIsRegistered = false;
 
 function renderConditionally() {
-  if (isLoggedIn === true) {
-    return (
-      <h1>Hello</h1>
-    );
-  } else {
-    return (
-      <Login />
-    );
-  }
+  return(
+    <Login isRegistered={userIsRegistered}/>
+  );
+  
 }
 
 function App() {
-  return (
-    <section className="section-login">
-      {renderConditionally()}
-    </section>
-  );
+  return <section className="section-login">{renderConditionally()}</section>;
 }
 
 export default App;
