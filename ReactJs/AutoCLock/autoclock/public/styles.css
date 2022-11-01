@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Wancho&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans Wancho", sans-serif;
+}
+html,
+body {
+  height: 100%;
+  background-color: #5837d0;
+}
+
+.container {
+  padding: 2% 0;
+  max-width: 90%;
+  margin: 40px auto;
+  text-align:center;
+}
+
+.container h1 {
+  font-size: 6rem;
+  color: #FFF;
+}
+
+.container button{
+  margin-top: 80px;
+  padding: 20px 35px;
+  font-size: 2.5rem;
+  text-transform:uppercase;
+  background-color: #7DE5ED;
+  color: #FFF;
+  border: none;
+  border-radius: 5px;
+}
+
+.container button:hover{
+  cursor: pointer;
+}
