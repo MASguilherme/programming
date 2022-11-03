@@ -20,7 +20,7 @@ section {
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  max-width: 300px;
+  max-width: 800px;
 
 }
 
@@ -40,6 +40,10 @@ section button {
   padding: 3%;
   text-transform: uppercase;
   font-size: 1.5rem;
+}
+
+section button:hover {
+  cursor:pointer;
 }
 
 .black{
