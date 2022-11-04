@@ -1,70 +1,111 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Raleway', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
 }
 
-html, body{
-    height: 100vh;
-    background-color: #040303;
+html,
+body {
+  height: 100vh;
+  background-color: #040303;
 }
 
-section .container{
-    display: flex;
-    justify-content:center;
-    padding: 0  2%;
-    margin: 2% 1%;
+section .container {
+  display: flex;
+  justify-content: center;
+  padding: 0 2%;
+  margin: 2% 1%;
 }
 
-.list-container{
-    margin: 5% 0;
-    padding: 2%;
-    width:40%;
-    min-width: 300px;
-    height: 80vh;
-    border-radius: 50px 5px 50px 5px;
-    box-shadow: 2px 5px 10px rgba(255,255,255,0.2);
-    background-color: #191A19;
+.list-container {
+  margin: 5% 0;
+  padding: 2%;
+  width: 50%;
+  min-width: 400px;
+  height: 80vh;
+  border-radius: 50px 5px 50px 5px;
+  box-shadow: 2px 5px 10px rgba(255, 255, 255, 0.2);
+  background-color: #191a19;
 }
 
-.heading{
-    color: #fff;
-    text-align:center;
-    text-transform: uppercase;
-    padding: 1%;
-    letter-spacing: 5px;
-    border-radius: 50px;
-    font-size: 2.5rem;
-    background-image: linear-gradient(to right, #2E0249, #570A57, #A91079);
+.heading {
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 1%;
+  letter-spacing: 5px;
+  border-radius: 50px;
+  font-size: 2.5rem;
+  background-image: linear-gradient(to right, #2e0249, #570a57, #a91079);
 }
 
-.form{
-    display:flex;
-    justify-content:center;
-    margin-top: 5%;
+.form {
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
 }
 
-.form input[type="text"]{
-    width: 80%;
-    height: 5vh;
-    border-radius: 5px;
-    padding: 2%;
-    font-size: 1.8rem;
-    border: 1px solid rgba(255,255,255,0.5);
-    color: #fff;
-    background: none;
+.form .text-list {
+  width: 70%;
+  height: 5vh;
+  border-radius: 5px;
+  padding: 2%;
+  font-size: 1.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #fff;
+  background: none;
+  outline: none;
+  transition: transform 1s;
+  border: none;
 }
 
-.form input[type="text"]:valid,
-.form input[type="text"]:focus{
-    color: #F806CC;
-    border: 1px solid #570A57;
+.form .text-list:focus {
+  border-bottom: 2px solid #a91079;
 }
 
-.form button{
-    width: 15%;
-    margin-left: 3%;
+.form button {
+  width: 20%;
+  margin-left: 3%;
+  background-image: linear-gradient(to right, #a91079, #570a57, #2e0249);
+  border: #570a57;
+  color: #fff;
+  border-radius: 3px;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  transition: transform 1s;
 }
+
+.form button:hover {
+  cursor: pointer;
+  background-image: linear-gradient(to right, #570a57 #a91079, #2e0249);
+}
+
+.items {
+  color: #fff;
+  padding: 0 5%;
+  font-size: 1.8rem;
+  margin: 5% 0 3% 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.items ul {
+  margin-top: 5%;
+}
+.items li {
+  padding-bottom: 1.8%;
+}
+
+.items li:selected {
+  text-decoration: line-through;
+  color: #fff;
+}
+
+.items li span {
+  margin-left: 100px;
+}
+
+
