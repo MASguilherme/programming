@@ -52,14 +52,14 @@ header h1 {
     margin-bottom: 5px;
 }
 
-.note p:last-child{
+.note .delete-icon{
   margin-top: 8%;
   text-align: right;
   color: #E26868;
   font-weight: 800;
 }
 
-.note p:last-child:hover{
+.note .delete-icon:hover{
   cursor: pointer;
   color: #d86464
 }
@@ -100,7 +100,6 @@ header h1 {
   border: none;
   font-size: 1.5rem;
   resize: none;
-  height: 10vh;
   margin: 2.5% 0;
   width: 100%;
 }
@@ -110,8 +109,8 @@ header h1 {
 }
 
 .form button{
-  width: 30%;
-  min-width: 150px;
+  width: 10%;
+  min-width: 50px;
   padding: 2% 0;
   background-color: #E26868;
   color: #fff;

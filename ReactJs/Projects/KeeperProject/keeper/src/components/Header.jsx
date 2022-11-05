@@ -1,12 +1,14 @@
 import React from "react";
-
-function Header(){
-
-    return(
-        <header>
-            <h1>Keeper</h1>
-        </header>
-    );
+import BoltIcon from "@mui/icons-material/Bolt";
+function Header() {
+  return (
+    <header>
+      <h1>
+        <BoltIcon />
+        Keeper
+      </h1>
+    </header>
+  );
 }
 
 export default Header;
