@@ -102,6 +102,7 @@ header h1 {
   resize: none;
   height: 10vh;
   margin: 2.5% 0;
+  width: 100%;
 }
 .form input[type="text"]:focus,
 .form textarea:focus{
@@ -109,7 +110,6 @@ header h1 {
 }
 
 .form button{
-  align-self: flex-end;
   width: 30%;
   min-width: 150px;
   padding: 2% 0;
