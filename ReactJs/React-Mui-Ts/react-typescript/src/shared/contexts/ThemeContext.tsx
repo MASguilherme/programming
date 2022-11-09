@@ -1,3 +1,8 @@
 import { createContext } from "react";
 
-const ThemeContext = createContext({});
+
+interface IThemeContext {
+    themeName: 'light' | 'dark'
+}
+
+const ThemeContext = createContext({} as IThemeContext);
