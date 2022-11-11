@@ -1,15 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const handleEntrar = () => {
-    console.log(email +" "+ password);
-  };
+
+  const emailLength = useMemo(()=>{
+    // console.log("executou");
+    return email.length;    
+  }, [email.length]);
+
+  const handleEntrar = useCallback(() =>{
+    console.log(`email: ${email} e senha: ${password}`);
+  }, [email, password]);
 
   return (
     <div>
       <form>
+        <p>Número de caracteres do e-mail: {emailLength}</p>
         <label>
           <span>E-mail:</span>
           <input
