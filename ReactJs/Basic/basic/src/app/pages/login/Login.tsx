@@ -21,7 +21,12 @@ export const Login = () => {
     <div>
       <form>
         <p>Número de caracteres do e-mail: {emailLength}</p>
-        <InputLogin />
+        <InputLogin 
+            label="Email:"
+            value={email}
+            onChange={newValue => setEmail(newValue)}
+            onPressEnter={() => inputPassword.current?.focus()}
+        />
         <label>
           <span>Senha:</span>
           <input
