@@ -1,8 +1,11 @@
-import {AppRoutes} from "./routes/index";
-export const App = () =>{
-  return(
+import { UsuarioLogadoProvider } from "../shared/contexts";
+import { AppRoutes } from "./routes/index";
+export const App = () => {
+  return (
     <div>
-      <AppRoutes />
+      <UsuarioLogadoProvider>
+        <AppRoutes />
+      </UsuarioLogadoProvider>
     </div>
   );
-}
+};
