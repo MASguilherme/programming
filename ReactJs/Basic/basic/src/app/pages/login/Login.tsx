@@ -1,7 +1,7 @@
 // Externo
 import { useState, useMemo, useCallback, useRef } from "react";
 // Interno
-import { InputLogin } from "../dashboard/components/InputLogin";
+import { InputLogin } from "./components/InputLogin";
 
 export const Login = () => {
   // start
@@ -27,7 +27,14 @@ export const Login = () => {
             onChange={newValue => setEmail(newValue)}
             onPressEnter={() => inputPassword.current?.focus()}
         />
-        <label>
+        <InputLogin 
+          label="Senha:"
+          value={password}
+          type="password"
+          ref={{inputPassword}}
+          onChange={newValue => setPassword(newValue)}
+        />
+        {/* <label>
           <span>Senha:</span>
           <input
             type="password"
@@ -35,7 +42,7 @@ export const Login = () => {
             ref={inputPassword}
             onChange={(event) => setPassword(event.target.value)}
           />
-        </label>
+        </label> */}
         <button type="button" onClick={handleEntrar}>
           Enviar
         </button>
