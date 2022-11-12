@@ -2,7 +2,7 @@
 import { useState, useMemo, useCallback, useRef } from "react";
 // Interno
 import { InputLogin } from "./components/InputLogin";
-
+import { ButtonLogin } from "./components/ButtonLogin";
 export const Login = () => {
   // start
   const inputPassword = useRef<HTMLInputElement>(null);
@@ -21,22 +21,29 @@ export const Login = () => {
     <div>
       <form>
         <p>Número de caracteres do e-mail: {emailLength}</p>
-        <InputLogin 
-            label="Email:"
-            value={email}
-            onChange={newValue => setEmail(newValue)}
-            onPressEnter={() => inputPassword.current?.focus()}
+        <InputLogin
+          label="Email:"
+          value={email}
+          onChange={(newValue) => setEmail(newValue)}
+          onPressEnter={() => inputPassword.current?.focus()}
         />
-        <InputLogin 
+        <InputLogin
           label="Senha:"
           value={password}
           type="password"
           ref={inputPassword}
-          onChange={newValue => setPassword(newValue)}
+          onChange={(newValue) => setPassword(newValue)}
         />
-        <button type="button" onClick={handleEntrar}>
+        {/* <button type="button" onClick={handleEntrar}>
           Enviar
-        </button>
+        </button> */}
+
+        <ButtonLogin type="button" onClick={handleEntrar}>
+          Entrar
+        </ButtonLogin>
+        <ButtonLogin type="button" onClick={handleEntrar}>
+          Cadastrar
+        </ButtonLogin>
       </form>
     </div>
   );
