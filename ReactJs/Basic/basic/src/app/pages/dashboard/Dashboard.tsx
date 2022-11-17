@@ -35,7 +35,10 @@ export const Dashboard = () => {
       <div>
         <input onKeyDown={handleInputKeyDown} />
         <p>Lista</p>
-        <p>{lista.filter((listItem) => listItem.isSelected).length} Items checados.</p>
+        <p>
+          {lista.filter((listItem) => listItem.isSelected).length} Items
+          checados.
+        </p>
         <ul>
           {lista.map((listItem) => {
             return (
