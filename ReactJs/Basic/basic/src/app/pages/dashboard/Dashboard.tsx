@@ -1,13 +1,13 @@
 import { useCallback, useState } from "react";
 
-interface IListeItem {
+interface IListItem {
   id: number
   title: string;
   isSelected: boolean;
 }
 
 export const Dashboard = () => {
-  const [lista, setLista] = useState<IListeItem[]>([]);
+  const [lista, setLista] = useState<IListItem[]>([]);
 
   const handleInputKeyDown: React.KeyboardEventHandler<HTMLInputElement> =
     useCallback((e) => {
@@ -23,6 +23,7 @@ export const Dashboard = () => {
           return [
             ...oldLista,
             {
+              id: oldLista.length,
               title: value,
               isSelected: false,
             },
@@ -43,7 +44,7 @@ export const Dashboard = () => {
         <ul>
           {lista.map((listItem) => {
             return (
-              <li key={listItem.title}>
+              <li key={listItem.id}>
                 <input
                   type="checkbox"
                   checked={listItem.isSelected}
