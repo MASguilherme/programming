@@ -1,13 +1,22 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
-interface IListItem {
-  id: number
-  title: string;
-  isSelected: boolean;
-}
+
+import { ApiException } from "../../shared/services/api/ApiException";
+import { IListItem, TasksService } from "../../shared/services/api/tasks/TasksService";
 
 export const Dashboard = () => {
   const [lista, setLista] = useState<IListItem[]>([]);
+
+  useEffect(()=>{
+    TasksService.getAll()
+    .then((result) =>{
+      if(result instanceof ApiException){
+        alert(result.message);
+      }else{
+        setLista(result);
+      }
+    });  
+  }, []);
 
   const handleInputKeyDown: React.KeyboardEventHandler<HTMLInputElement> =
     useCallback((e) => {

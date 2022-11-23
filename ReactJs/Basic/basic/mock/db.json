@@ -8,6 +8,11 @@
     {
       "id": 2,
       "title": "Tarefa 02",
+      "isSelected": false
+    },
+    {
+      "id": 3,
+      "title": "Tarefa 03",
       "isSelected": true
     }
   ]

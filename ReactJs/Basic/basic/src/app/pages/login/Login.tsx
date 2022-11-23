@@ -3,7 +3,7 @@ import { useState, useMemo, useCallback, useRef } from "react";
 // Interno
 import { InputLogin } from "./components/InputLogin";
 import { ButtonLogin } from "./components/ButtonLogin";
-import { useUsuarioLogado } from "../../../shared/hooks";
+import { useUsuarioLogado } from "../../shared/hooks";
 export const Login = () => {
   // start
   const inputPassword = useRef<HTMLInputElement>(null);

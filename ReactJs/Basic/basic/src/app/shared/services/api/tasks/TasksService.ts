@@ -1,7 +1,7 @@
 import { Api } from "../ApiConfig";
 import { ApiException } from "../ApiException";
 
-interface IListItem {
+export interface IListItem {
   id: number;
   title: string;
   isSelected: boolean;

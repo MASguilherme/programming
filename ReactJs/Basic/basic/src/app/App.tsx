@@ -1,5 +1,5 @@
-import { UsuarioLogadoProvider } from "../shared/contexts";
-import { AppRoutes } from "./routes/index";
+import { UsuarioLogadoProvider } from "./shared/contexts";
+import { AppRoutes } from "./pages/routes/index";
 export const App = () => {
   return (
     <div>
