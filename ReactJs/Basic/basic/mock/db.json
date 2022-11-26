@@ -13,17 +13,12 @@
     {
       "id": 3,
       "title": "Tarefa 03",
-      "isSelected": true
+      "isSelected": false
     },
     {
       "title": "tarefa 04",
       "isSelected": false,
       "id": 4
-    },
-    {
-      "title": "tarefa com arroz e feijão",
-      "isSelected": false,
-      "id": 5
     }
   ]
 }

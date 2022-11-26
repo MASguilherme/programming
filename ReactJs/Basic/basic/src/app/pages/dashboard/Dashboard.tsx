@@ -71,6 +71,17 @@ export const Dashboard = () => {
     [lista]
   );
 
+  const handleDelete = useCallback((id:number)=>{
+    TasksService.deleteById(id).then((result)=>{
+      if(result instanceof ApiException){
+        alert(result.message);
+      }else{
+        setLista(oldLista =>{
+          return oldLista.filter( oldListItem => oldListItem.id !== id);
+        });
+      }
+    });
+  }, []);
   return (
     <div>
       <h1>Dashboard!</h1>
@@ -91,10 +102,12 @@ export const Dashboard = () => {
                   onChange={() => handleToggleComplete(listItem.id)}
                 />
                 {listItem.title}
+                <button onClick={() => handleDelete(listItem.id)}>Apagar</button>
               </li>
             );
           })}
         </ul>
+        
       </div>
     </div>
   );

@@ -48,7 +48,7 @@ const updateById = async (
 
 const deleteById = async (id: number): Promise<undefined | ApiException> => {
   try {
-    await Api().get(`/tarefas/${id}`);
+    await Api().delete(`/tarefas/${id}`);
     return undefined;
   } catch (error: any) {
     return new ApiException(error.message || "Error ao consultar API");
