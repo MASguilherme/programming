@@ -1,21 +1,22 @@
 import { useCallback, useEffect, useState } from "react";
 
-
 import { ApiException } from "../../shared/services/api/ApiException";
-import { IListItem, TasksService } from "../../shared/services/api/tasks/TasksService";
+import {
+  IListItem,
+  TasksService,
+} from "../../shared/services/api/tasks/TasksService";
 
 export const Dashboard = () => {
   const [lista, setLista] = useState<IListItem[]>([]);
 
-  useEffect(()=>{
-    TasksService.getAll()
-    .then((result) =>{
-      if(result instanceof ApiException){
+  useEffect(() => {
+    TasksService.getAll().then((result) => {
+      if (result instanceof ApiException) {
         alert(result.message);
-      }else{
+      } else {
         setLista(result);
       }
-    });  
+    });
   }, []);
 
   const handleInputKeyDown: React.KeyboardEventHandler<HTMLInputElement> =
@@ -26,20 +27,25 @@ export const Dashboard = () => {
 
         e.currentTarget.value = "";
 
-        setLista((oldLista) => {
-          if (oldLista.some((listItem) => listItem.title === value))
-            return oldLista;
-          return [
-            ...oldLista,
-            {
-              id: oldLista.length,
-              title: value,
-              isSelected: false,
-            },
-          ];
+        if (lista.some((listItem) => listItem.title === value)) return;
+
+        TasksService.create({
+          title: value,
+          isSelected: false,
+        }).then((result) => {
+          if (result instanceof ApiException) {
+            alert(result.message);
+          } else {
+            setLista((oldLista) => {
+              return [
+                ...oldLista,
+                result,
+              ];
+            });
+          }
         });
       }
-    }, []);
+    }, [lista]);
   return (
     <div>
       <h1>Dashboard!</h1>
