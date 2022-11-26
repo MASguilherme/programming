@@ -26,7 +26,7 @@ const getAll = async (): Promise<IListItem[] | ApiException> => {
     return new ApiException(error.message || "Error ao consultar API");
   }
 };
-const getById = async (id: string): Promise<IListItem | ApiException> => {
+const getById = async (id: number): Promise<IListItem | ApiException> => {
   try {
     const { data } = await Api().get(`/tarefas/${id}`);
     return data;
@@ -35,7 +35,7 @@ const getById = async (id: string): Promise<IListItem | ApiException> => {
   }
 };
 const updateById = async (
-  id: string,
+  id: number,
   dataToUpdate: IListItem
 ): Promise<IListItem | ApiException> => {
   try {
@@ -46,7 +46,7 @@ const updateById = async (
   }
 };
 
-const deleteById = async (id: string): Promise<undefined | ApiException> => {
+const deleteById = async (id: number): Promise<undefined | ApiException> => {
   try {
     await Api().get(`/tarefas/${id}`);
     return undefined;

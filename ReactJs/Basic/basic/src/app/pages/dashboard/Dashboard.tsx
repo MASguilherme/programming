@@ -20,32 +20,57 @@ export const Dashboard = () => {
   }, []);
 
   const handleInputKeyDown: React.KeyboardEventHandler<HTMLInputElement> =
-    useCallback((e) => {
-      if (e.key === "Enter") {
-        if (e.currentTarget.value.trim().length === 0) return;
-        const value = e.currentTarget.value;
+    useCallback(
+      (e) => {
+        if (e.key === "Enter") {
+          if (e.currentTarget.value.trim().length === 0) return;
+          const value = e.currentTarget.value;
 
-        e.currentTarget.value = "";
+          e.currentTarget.value = "";
 
-        if (lista.some((listItem) => listItem.title === value)) return;
+          if (lista.some((listItem) => listItem.title === value)) return;
 
-        TasksService.create({
-          title: value,
-          isSelected: false,
-        }).then((result) => {
-          if (result instanceof ApiException) {
-            alert(result.message);
-          } else {
-            setLista((oldLista) => {
-              return [
-                ...oldLista,
-                result,
-              ];
+          TasksService.create({
+            title: value,
+            isSelected: false,
+          }).then((result) => {
+            if (result instanceof ApiException) {
+              alert(result.message);
+            } else {
+              setLista((oldLista) => {
+                return [...oldLista, result];
+              });
+            }
+          });
+        }
+      },
+      [lista]
+    );
+
+  const handleToggleComplete = useCallback(
+    (id: number) => {
+      const taskUpdate = lista.find((tarefa) => tarefa.id === id);
+      if (!taskUpdate) return;
+
+      TasksService.updateById(id, {
+        ...taskUpdate,
+        isSelected: !taskUpdate.isSelected,
+      }).then((result) => {
+        if (result instanceof ApiException) {
+          alert(result.message);
+        } else {
+          setLista((oldLista) => {
+            return oldLista.map((oldListItem) => {
+              if(oldListItem.id === id) return result;
+              return oldListItem;
             });
-          }
-        });
-      }
-    }, [lista]);
+          });
+        }
+      });
+    },
+    [lista]
+  );
+
   return (
     <div>
       <h1>Dashboard!</h1>
@@ -63,20 +88,7 @@ export const Dashboard = () => {
                 <input
                   type="checkbox"
                   checked={listItem.isSelected}
-                  onChange={() => {
-                    setLista((oldLista) => {
-                      return oldLista.map((oldListItem) => {
-                        const newIsSelected =
-                          oldListItem.title === listItem.title
-                            ? !oldListItem.isSelected
-                            : oldListItem.isSelected;
-                        return {
-                          ...oldListItem,
-                          isSelected: newIsSelected,
-                        };
-                      });
-                    });
-                  }}
+                  onChange={() => handleToggleComplete(listItem.id)}
                 />
                 {listItem.title}
               </li>
