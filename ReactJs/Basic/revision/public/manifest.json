@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Revisão React",
+  "name": "Site criado para revisão de ReactJs com TypeScript",
   "icons": [
     {
       "src": "favicon.ico",
