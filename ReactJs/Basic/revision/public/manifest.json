@@ -1,6 +1,6 @@
 {
-  "short_name": "Revisão React",
-  "name": "Site criado para revisão de ReactJs com TypeScript",
+  "short_name": "React App",
+  "name": "Revisão de conceitos",
   "icons": [
     {
       "src": "favicon.ico",
