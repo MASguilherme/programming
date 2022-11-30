@@ -1,7 +1,9 @@
+import { Routes } from "./routes";
+
 export const App = () => {
   return (
     <div>
-      <h1>Olá</h1>
+      <Routes />
     </div>
   );
 };
