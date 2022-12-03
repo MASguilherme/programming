@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useRef } from "react";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -11,6 +11,14 @@ export const Login = () => {
   const handleLogin = useCallback(() => {
     console.log("Dados enviados: E-mail: " + email + " Senha: " + password);
   }, [email, password]);
+
+  const inputTextFocus = useRef<HTMLInputElement>(null);
+
+  const InputFocus = () => {
+    if (inputTextFocus.current !== null) {
+      inputTextFocus.current.focus();
+    }
+  };
 
   return (
     <div>
@@ -32,6 +40,20 @@ export const Login = () => {
           Entrar
         </button>
       </form>
+
+      <br />
+      <div>
+        <input type="text" ref={inputTextFocus} />
+        <button
+          type="button"
+          onClick={InputFocus}
+          onKeyDown={(e) =>
+            e.key === "Enter" ? inputTextFocus.current?.focus() : undefined
+          }
+        >
+          Clique para focus
+        </button>
+      </div>
     </div>
   );
 };
