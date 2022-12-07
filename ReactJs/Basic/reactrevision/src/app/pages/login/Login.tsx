@@ -1,6 +1,8 @@
 import { useState, useMemo, useCallback } from "react";
 
 import { InputLogin } from "./components/InputLogin";
+import { ButtonLogin } from "./components/ButtonLogin";
+import { type } from "os";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -26,9 +28,8 @@ export const Login = () => {
           setValue={setPassword}
           type={"password"}
         />
-        <button type="button" onClick={handleLogin}>
-          Entrar
-        </button>
+        <ButtonLogin onLogin={handleLogin} type="button">Login</ButtonLogin>
+        <ButtonLogin onLogin={handleLogin} type="button">Cadastrar</ButtonLogin>
       </form>
 
       <br />
