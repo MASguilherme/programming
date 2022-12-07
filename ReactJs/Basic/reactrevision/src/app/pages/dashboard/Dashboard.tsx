@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 
+import { useUsuarioLogado } from "../../shared/hooks";
+
 export const DashSpan = () => {
   return (
     <div>
@@ -25,11 +27,15 @@ export const DashLink = () => {
 };
 
 export const Dashboard = () => {
+  const { nomeDoUsuario, logout } = useUsuarioLogado();
+
   return (
     <div>
       <h1>Dashboard</h1>
       <DashButton />
       <DashLink />
+      <p>{nomeDoUsuario}</p>
+      <button type="button" onClick={logout}>fazer Logout</button>
     </div>
   );
 };

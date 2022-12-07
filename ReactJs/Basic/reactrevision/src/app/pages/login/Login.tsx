@@ -29,7 +29,6 @@ export const Login = () => {
           type={"password"}
         />
         <ButtonLogin onLogin={handleLogin} type="button">Login</ButtonLogin>
-        <ButtonLogin onLogin={handleLogin} type="button">Cadastrar</ButtonLogin>
       </form>
 
       <br />
