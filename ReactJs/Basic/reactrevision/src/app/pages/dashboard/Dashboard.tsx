@@ -10,9 +10,13 @@ export const Dashboard = () => {
 
         const currentValue = e.currentTarget.value;
 
-        e.currentTarget.value = '';
+        e.currentTarget.value = "";
 
         setLista((oldLista) => {
+          if (oldLista.includes(currentValue)) {
+            alert('Valor já foi adicionado!');
+            return oldLista;
+          }
           return [...oldLista, currentValue];
         });
       }
