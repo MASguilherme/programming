@@ -1,7 +1,12 @@
 import { useState, useCallback } from "react";
 
+interface IListItem {
+  item: string;
+  isSelected: boolean;
+}
+
 export const Dashboard = () => {
-  const [lista, setLista] = useState<string[]>([]);
+  const [lista, setLista] = useState<IListItem[]>([]);
 
   const handleInputKeyDown: React.KeyboardEventHandler<HTMLInputElement> =
     useCallback((e) => {
@@ -13,11 +18,17 @@ export const Dashboard = () => {
         e.currentTarget.value = "";
 
         setLista((oldLista) => {
-          if (oldLista.includes(currentValue)) {
-            alert('Valor já foi adicionado!');
+          if (oldLista.some((listItem) => listItem.item === currentValue)) {
+            alert("Valor já foi adicionado!");
             return oldLista;
           }
-          return [...oldLista, currentValue];
+          return [
+            ...oldLista,
+            {
+              item: currentValue,
+              isSelected: false,
+            },
+          ];
         });
       }
     }, []);
@@ -28,8 +39,8 @@ export const Dashboard = () => {
       <h2>Lista</h2>
       <input type="text" onKeyDown={handleInputKeyDown} />
       <ul>
-        {lista.map((value, index) => {
-          return <li>{value}</li>;
+        {lista.map((listItem, index) => {
+          return <li key={index}>{listItem.item}</li>;
         })}
       </ul>
     </div>
