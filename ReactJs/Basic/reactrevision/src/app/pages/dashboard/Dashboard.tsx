@@ -1,41 +1,33 @@
-import { Link } from "react-router-dom";
-
-import { useUsuarioLogado } from "../../shared/hooks";
-
-export const DashSpan = () => {
-  return (
-    <div>
-      <span>Dash Button</span>
-    </div>
-  );
-};
-
-export const DashButton = () => {
-  return (
-    <button>
-      <DashSpan />
-    </button>
-  );
-};
-
-export const DashLink = () => {
-  return (
-    <div>
-      <Link to="/entrar">Entrar</Link>
-    </div>
-  );
-};
+import { useState, useCallback } from "react";
 
 export const Dashboard = () => {
-  const { nomeDoUsuario, logout } = useUsuarioLogado();
+  const [lista, setLista] = useState<string[]>([]);
+
+  const handleInputKeyDown: React.KeyboardEventHandler<HTMLInputElement> =
+    useCallback((e) => {
+      if (e.key === "Enter") {
+        if (e.currentTarget.value.trim().length === 0) return;
+
+        const currentValue = e.currentTarget.value;
+
+        e.currentTarget.value = '';
+
+        setLista((oldLista) => {
+          return [...oldLista, currentValue];
+        });
+      }
+    }, []);
 
   return (
     <div>
       <h1>Dashboard</h1>
-      <DashButton />
-      <DashLink />
-      <p>{nomeDoUsuario}</p>
-      <button type="button" onClick={logout}>fazer Logout</button>
+      <h2>Lista</h2>
+      <input type="text" onKeyDown={handleInputKeyDown} />
+      <ul>
+        {lista.map((value, index) => {
+          return <li>{value}</li>;
+        })}
+      </ul>
     </div>
   );
 };

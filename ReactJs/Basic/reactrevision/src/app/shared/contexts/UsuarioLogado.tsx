@@ -19,10 +19,8 @@ export const UsuarioLogadoProvider: React.FC<IUsuarioLogadoProviderProps> = ({
   const [nome, setNome] = useState("");
 
   useEffect(() => {
-    setTimeout(()=>{
-      setNome('Guilherme');
-    }, 800);
-  });
+    setNome('Guilherme');
+  }, [nome]);
 
   const handleLogout = useCallback(() => {
     console.log("logout realizado!");
