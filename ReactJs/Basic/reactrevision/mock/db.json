@@ -2,8 +2,8 @@
   "tarefas": [
     {
       "id": 1,
-      "title": "teste posts",
-      "isSelected": false
+      "item": "teste posts",
+      "isCompleted": false
     }
   ]
 }

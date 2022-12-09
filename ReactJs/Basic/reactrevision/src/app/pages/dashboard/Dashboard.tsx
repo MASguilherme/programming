@@ -1,12 +1,13 @@
 import { useState, useCallback } from "react";
 
-interface IListItem {
+interface ITarefa {
+  id: number;
   item: string;
-  isSelected: boolean;
+  isCompleted: boolean;
 }
 
 export const Dashboard = () => {
-  const [lista, setLista] = useState<IListItem[]>([]);
+  const [lista, setLista] = useState<ITarefa[]>([]);
 
   const handleInputKeyDown: React.KeyboardEventHandler<HTMLInputElement> =
     useCallback((e) => {
@@ -26,7 +27,7 @@ export const Dashboard = () => {
             ...oldLista,
             {
               item: currentValue,
-              isSelected: false,
+              isCompleted: false,
             },
           ];
         });
@@ -39,26 +40,26 @@ export const Dashboard = () => {
       <h2>Lista</h2>
       <p>
         Itens selecionados:{" "}
-        {lista.filter((listItem) => listItem.isSelected).length}
+        {lista.filter((listItem) => listItem.isCompleted).length}
       </p>
       <input type="text" onKeyDown={handleInputKeyDown} />
       <ul>
         {lista.map((listItem, index) => {
           return (
-            <li key={index}>
+            <li key={listItem.id}>
               <input
                 type="checkbox"
-                checked={listItem.isSelected}
+                checked={listItem.isCompleted}
                 onChange={() => {
                   setLista((oldLista) => {
                     return oldLista.map((oldListItem) => {
-                      const newIsSelected =
+                      const newIsCompleted =
                         oldListItem.item === listItem.item
-                          ? !oldListItem.isSelected
-                          : oldListItem.isSelected;
+                          ? !oldListItem.isCompleted
+                          : oldListItem.isCompleted;
                       return {
                         ...oldListItem,
-                        isSelected: newIsSelected,
+                        isCompleted: newIsCompleted,
                       };
                     });
                   });
