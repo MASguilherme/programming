@@ -33,8 +33,6 @@ export const Dashboard = () => {
       }
     }, []);
 
-  const handleChecklist = () => {};
-
   return (
     <div>
       <h1>Dashboard</h1>
