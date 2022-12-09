@@ -1,0 +1,19 @@
+{
+    "posts": [
+        {
+            "id": 1,
+            "title": "teste 1"
+        }
+    ],
+    "comments": [
+        {
+            "id": 1,
+            "comments": "comment 1"
+        }
+    ],
+    "profile": [
+        {
+            "name": "Gui"
+        }
+    ]
+}
