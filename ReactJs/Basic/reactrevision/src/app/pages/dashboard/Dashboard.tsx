@@ -1,10 +1,6 @@
 import { useState, useCallback } from "react";
 
-interface ITarefa {
-  id: number;
-  item: string;
-  isCompleted: boolean;
-}
+import {ITarefa } from '../../shared/services/api/ApiConfig';
 
 export const Dashboard = () => {
   const [lista, setLista] = useState<ITarefa[]>([]);

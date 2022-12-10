@@ -1,7 +1,7 @@
 import { Api } from "../ApiConfig";
 import { ApiException } from "../ApiException";
 
-interface ITarefa {
+export interface ITarefa {
   id: number;
   item: string;
   isCompleted: boolean;
