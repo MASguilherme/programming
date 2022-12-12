@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
 
-import {ITarefa } from '../../shared/services/api/ApiConfig';
+import {ITarefa } from '../../shared/services/api/tarefas/TarefaService';
 
 export const Dashboard = () => {
   const [lista, setLista] = useState<ITarefa[]>([]);
