@@ -24,6 +24,7 @@ export const Dashboard = () => {
             {
               item: currentValue,
               isCompleted: false,
+              id: oldLista.length,
             },
           ];
         });
