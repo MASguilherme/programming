@@ -1,35 +1,54 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 
-import {ITarefa } from '../../shared/services/api/tarefas/TarefaService';
+import {
+  ITarefa,
+  TarefaService,
+} from "../../shared/services/api/tarefas/TarefaService";
+import { ApiException } from "../../shared/services/api/ApiException";
 
 export const Dashboard = () => {
   const [lista, setLista] = useState<ITarefa[]>([]);
 
-  const handleInputKeyDown: React.KeyboardEventHandler<HTMLInputElement> =
-    useCallback((e) => {
-      if (e.key === "Enter") {
-        if (e.currentTarget.value.trim().length === 0) return;
-
-        const currentValue = e.currentTarget.value;
-
-        e.currentTarget.value = "";
-
-        setLista((oldLista) => {
-          if (oldLista.some((listItem) => listItem.item === currentValue)) {
-            alert("Valor já foi adicionado!");
-            return oldLista;
-          }
-          return [
-            ...oldLista,
-            {
-              item: currentValue,
-              isCompleted: false,
-              id: oldLista.length,
-            },
-          ];
-        });
+  useEffect(() => {
+    TarefaService.getAll().then((result) => {
+      if (result instanceof ApiException) {
+        alert(result.message);
+      } else {
+        setLista(result);
       }
-    }, []);
+    });
+  }, [setLista]);
+
+  const handleInputKeyDown: React.KeyboardEventHandler<HTMLInputElement> =
+    useCallback(
+      (e) => {
+        if (e.key === "Enter") {
+          if (e.currentTarget.value.trim().length === 0) return;
+
+          const currentValue = e.currentTarget.value;
+
+          e.currentTarget.value = "";
+
+          if (lista.some((listItem) => listItem.item === currentValue)) {
+            alert("Valor já foi adicionado!");
+          }
+
+          TarefaService.create({
+            item: currentValue,
+            isCompleted: false,
+          }).then((result) => {
+            if (result instanceof ApiException) {
+              alert(result.message);
+            } else {
+              setLista((oldLista) => {
+                return [...oldLista, result];
+              });
+            }
+          });
+        }
+      },
+      [lista]
+    );
 
   return (
     <div>
