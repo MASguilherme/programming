@@ -50,6 +50,45 @@ export const Dashboard = () => {
       [lista]
     );
 
+  const handleToggleComplete = useCallback(
+    (id: number) => {
+      const tarefaToUpdate = lista.find((tarefa) => tarefa.id === id);
+
+      if (!tarefaToUpdate) return;
+
+      TarefaService.updateById(id, {
+        ...tarefaToUpdate,
+        isCompleted: !tarefaToUpdate.isCompleted,
+      }).then((result) => {
+        if (result instanceof ApiException) {
+          alert(result.message);
+        } else {
+          setLista((oldLista) => {
+            return oldLista.map((oldListItem) => {
+              if (oldListItem.id === id) return result;
+              return oldListItem;
+            });
+          });
+        }
+      });
+    },
+    [lista]
+  );
+
+  const handleDeleteItem = useCallback(
+    (id: number) => {
+      TarefaService.deleteById(id).then((result) => {
+        if (result instanceof ApiException) {
+          alert(result.message);
+        } else {
+          setLista((oldLista) => {
+            return oldLista.filter((oldListItem) => oldListItem.id !== id);
+          });
+        }
+      });
+    },
+    [lista]
+  );
   return (
     <div>
       <h1>Dashboard</h1>
@@ -60,28 +99,23 @@ export const Dashboard = () => {
       </p>
       <input type="text" onKeyDown={handleInputKeyDown} />
       <ul>
-        {lista.map((listItem, index) => {
+        {lista.map((listItem) => {
           return (
             <li key={listItem.id}>
               <input
                 type="checkbox"
                 checked={listItem.isCompleted}
                 onChange={() => {
-                  setLista((oldLista) => {
-                    return oldLista.map((oldListItem) => {
-                      const newIsCompleted =
-                        oldListItem.item === listItem.item
-                          ? !oldListItem.isCompleted
-                          : oldListItem.isCompleted;
-                      return {
-                        ...oldListItem,
-                        isCompleted: newIsCompleted,
-                      };
-                    });
-                  });
+                  handleToggleComplete(listItem.id);
                 }}
               />
               {listItem.item}
+              <button
+                type="button"
+                onClick={() => handleDeleteItem(listItem.id)}
+              >
+                 Delete
+              </button>
             </li>
           );
         })}

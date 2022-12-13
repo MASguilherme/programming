@@ -1,24 +1,19 @@
 {
   "tarefas": [
     {
-      "id": 1,
-      "item": "teste posts",
-      "isCompleted": false
+      "item": "item 1",
+      "isCompleted": true,
+      "id": 1
     },
     {
-      "id": 2,
-      "item": "teste posts 2",
-      "isCompleted": true
+      "item": "item 2",
+      "isCompleted": true,
+      "id": 2
     },
     {
-      "item": "teste posts",
-      "isCompleted": false,
+      "item": "item 3",
+      "isCompleted": true,
       "id": 3
-    },
-    {
-      "item": "tarefa 03",
-      "isCompleted": false,
-      "id": 4
     }
   ]
 }
