@@ -15,13 +15,13 @@ const useClasses = createUseStyles({
 });
 
 const Paragraph = styled.p`
-    background-color: orange;
-    color: red;
-    font-size: 3rem;
+  background-color: orange;
+  color: red;
+  font-size: 3rem;
 
-    :hover{
-        background-color: black;
-    }
+  :hover {
+    background-color: black;
+  }
 `;    
 
 export const Dashboard = () => {
