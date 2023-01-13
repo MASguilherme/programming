@@ -26,7 +26,7 @@ function ListaNomes(nomes: string[], idades: number[]){
     return [nomes, idades];
 }
 let infoListaNomes = ListaNomes(['Guilherme', 'Saulo'], [21, 17]);
-// console.log(...infoListaNomes);
+// console.log(infoListaNomes);
 
 // Ex 07 - Labeled Tuples com Spread Operator numa função
 
@@ -39,4 +39,4 @@ function CriarPessoa(...pessoa: Pessoa){
     return [...pessoa];
 }
 
-console.log(CriarPessoa('Guilherme', 'Souza'));
+// console.log(CriarPessoa('Guilherme', 'Souza'));

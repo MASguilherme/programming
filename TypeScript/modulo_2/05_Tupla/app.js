@@ -25,4 +25,4 @@ let infoListaNomes = ListaNomes(['Guilherme', 'Saulo'], [21, 17]);
 function CriarPessoa(...pessoa) {
     return [...pessoa];
 }
-console.log(CriarPessoa('Guilherme', 'Souza'));
+// console.log(CriarPessoa('Guilherme', 'Souza'));
