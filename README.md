@@ -1,2 +1,2 @@
-# EstudoJavascript
-Meu estudo de javascript, atualizando sempre que possível.
+# Estudos de Programação
+Meu estudo de programação, atualizando sempre que possível.
