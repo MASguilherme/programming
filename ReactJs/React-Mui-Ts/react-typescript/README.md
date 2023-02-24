@@ -1,1 +1,0 @@
-# Sistema de cadastros básicos - CRUD
