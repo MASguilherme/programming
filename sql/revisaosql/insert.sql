@@ -12,4 +12,3 @@ VALUE(03, '2001-02-12', '20316845687', 'SAULO', 03);
 /* DQL SELECT */
 
 SELECT * FROM tipocliente;
-SELECT * FROM cliente;
