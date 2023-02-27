@@ -7,4 +7,4 @@ CREATE TABLE `cliente` (
   PRIMARY KEY (`id_cliente_cliente`),
   KEY `fk_tipocliente` (`i_tipo_cliente`),
   CONSTRAINT `fk_tipocliente` FOREIGN KEY (`i_tipo_cliente`) REFERENCES `tipocliente` (`id_tipo_cliente_tipocliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci

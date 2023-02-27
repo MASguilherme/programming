@@ -6,4 +6,4 @@ DELETE from cliente WHERE id_cliente_cliente > 0;
 
 INSERT INTO cliente SELECT * FROM cliente_dois;
 
-SELECT * FROM cliente;
+SELECT * FROM cliente; 
