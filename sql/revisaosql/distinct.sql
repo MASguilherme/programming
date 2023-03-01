@@ -1,3 +1,5 @@
 /* DISTINC */
 
-SELECT ct.id_cliente_cliente AS idCliente FROM cliente ct;
+SELECT DISTINCT i_cliente_cliente FROM venda;
+
+SELECT * FROM venda;
