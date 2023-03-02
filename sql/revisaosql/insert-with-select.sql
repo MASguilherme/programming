@@ -1,6 +1,6 @@
-INSERT INTO cliente_dois(
-	id_cliente_cliente, s_nome_cliente, s_cpf_cliente, d_nasc_cliente, i_tipo_cliente
-) SELECT id_cliente_cliente, s_nome_cliente, s_cpf_cliente, d_nasc_cliente, i_tipo_cliente
+INSERT INTO clientecopia(
+	int_id_cliente, s_nome_cliente, s_cpf_cliente, dt_nasc_cliente, int_tipo_cliente
+) SELECT int_id_cliente, s_nome_cliente, s_cpf_cliente, dt_nasc_cliente, int_tipo_cliente
 FROM cliente;
 
-SELECT * FROM cliente_dois;
+SELECT * FROM clientecopia;

@@ -1,6 +1,6 @@
-DELETE FROM cliente WHERE id_cliente_cliente > 0;
+DELETE FROM cliente WHERE int_id_cliente > 0;
 
-INSERT INTO cliente SELECT * FROM cliente_dois;
+INSERT INTO cliente SELECT * FROM clientecopia;
 
 INSERT INTO tipocliente VALUES(4, 'cliente maroto');
 

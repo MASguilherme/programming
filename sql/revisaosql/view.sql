@@ -9,9 +9,9 @@ SELECT * FROM cpf_clientes;
 CREATE VIEW aniversariantes_do_mes AS
 	SELECT 
 		s_nome_cliente AS 'Nome',
-		DAY(d_nasc_cliente) AS 'Aniversariantes do mês'
+		DAY(dt_nasc_cliente) AS 'Aniversariantes do mês'
 	FROM cliente 
-		WHERE MONTH(d_nasc_cliente) = MONTH(CURDATE());
+		WHERE MONTH(dt_nasc_cliente) = MONTH(CURDATE());
         
 SELECT * FROM aniversariantes_do_mes;
 	
